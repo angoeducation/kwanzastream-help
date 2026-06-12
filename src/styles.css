@@ -1,0 +1,143 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* KwanzaStream tokens (light) */
+  --color-ks-bg: var(--ks-bg);
+  --color-ks-surface: var(--ks-surface);
+  --color-ks-surface-2: var(--ks-surface-2);
+  --color-ks-border: var(--ks-border);
+  --color-ks-border-hover: var(--ks-border-hover);
+  --color-ks-accent: var(--ks-accent);
+  --color-ks-accent-hover: var(--ks-accent-hover);
+  --color-ks-accent-subtle: var(--ks-accent-subtle);
+  --color-ks-text: var(--ks-text);
+  --color-ks-text-secondary: var(--ks-text-secondary);
+  --color-ks-muted: var(--ks-muted);
+  --color-ks-success: var(--ks-success);
+  --color-ks-warning: var(--ks-warning);
+  --color-ks-danger: var(--ks-danger);
+  --color-ks-footer-bg: var(--ks-footer-bg);
+  --color-ks-footer-text: var(--ks-footer-text);
+  --color-ks-footer-muted: var(--ks-footer-muted);
+  --color-ks-footer-divider: var(--ks-footer-divider);
+}
+
+:root {
+  --color-primary: #9147ff;
+  --color-primary-hover: #772ce8;
+  --color-hero-bg: #f0f0ff;
+  --color-text: #0e0e0e;
+  --color-surface: #ffffff;
+
+  --ks-bg: #F7F7F8;
+  --ks-surface: #FFFFFF;
+  --ks-surface-2: #F2F2F4;
+  --ks-border: #E4E4E7;
+  --ks-border-hover: #C4C4CC;
+  --ks-accent: #9146FF;
+  --ks-accent-hover: #772CE8;
+  --ks-accent-subtle: #F0E6FF;
+  --ks-text: #0E0E10;
+  --ks-text-secondary: #53535F;
+  --ks-muted: #ADADB8;
+  --ks-success: #00F5D4;
+  --ks-warning: #EB0400;
+  --ks-danger: #EB0400;
+
+  --ks-footer-bg: #000000;
+  --ks-footer-text: #FFFFFF;
+  --ks-footer-muted: #ADADB8;
+  --ks-footer-divider: #1F1F23;
+
+  --radius: 8px;
+  --background: var(--ks-bg);
+  --foreground: var(--ks-text);
+  --card: var(--ks-surface);
+  --card-foreground: var(--ks-text);
+  --popover: var(--ks-surface);
+  --popover-foreground: var(--ks-text);
+  --primary: var(--ks-accent);
+  --primary-foreground: #ffffff;
+  --secondary: var(--ks-surface-2);
+  --secondary-foreground: var(--ks-text);
+  --muted: var(--ks-surface-2);
+  --muted-foreground: var(--ks-text-secondary);
+  --accent: var(--ks-surface-2);
+  --accent-foreground: var(--ks-text);
+  --destructive: #DC2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--ks-border);
+  --input: var(--ks-border);
+  --ring: var(--ks-accent);
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--ks-bg);
+    color: var(--ks-text);
+  }
+
+  body {
+    background-color: var(--ks-bg);
+    color: var(--ks-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    color: var(--ks-text);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--ks-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
