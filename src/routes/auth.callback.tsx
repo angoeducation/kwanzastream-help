@@ -1,23 +1,56 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { parseCallbackHash, saveToken } from "@/lib/auth";
+import { useEffect } from 'react';
+import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { exchangeCodeForToken, fetchUser, saveToken } from '@/lib/auth';
+import { useAuth } from '@/context/AuthContext';
 
-export const Route = createFileRoute("/auth/callback")({
+export const Route = createFileRoute('/auth/callback')({
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      code: search.code as string | undefined,
+      state: search.state as string | undefined,
+      error: search.error as string | undefined,
+    };
+  },
   component: AuthCallbackPage,
 });
 
 function AuthCallbackPage() {
   const navigate = useNavigate();
+  const search = useSearch({ from: '/auth/callback' });
+  const { setUser } = useAuth();
 
   useEffect(() => {
-    const token = parseCallbackHash();
-    if (token) {
-      saveToken(token);
-      // Clean the hash from the URL then go home
-      window.history.replaceState({}, document.title, "/");
+    async function handleCallback() {
+      if (search.error) {
+        console.error('OAuth error:', search.error);
+        navigate({ to: '/' });
+        return;
+      }
+
+      // Valida state para prevenir CSRF
+      const savedState = sessionStorage.getItem('oauth_state');
+      if (!search.code || search.state !== savedState) {
+        console.error('Invalid code or state mismatch');
+        navigate({ to: '/' });
+        return;
+      }
+
+      try {
+        const token = await exchangeCodeForToken(search.code);
+        saveToken(token);
+        const user = await fetchUser(token);
+        if (user) {
+          setUser(user);
+        }
+        navigate({ to: '/' });
+      } catch (error) {
+        console.error('Erro no callback auth:', error);
+        navigate({ to: '/' });
+      }
     }
-    navigate({ to: "/", replace: true });
-  }, [navigate]);
+
+    handleCallback();
+  }, [search, navigate, setUser]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-ks-bg">
