@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { categories } from "@/content/helpCenter";
 import { useSearch } from "@/context/SearchContext";
+import { Twitter } from "lucide-react";
 
 function matches(text: string, q: string) {
   return text.toLowerCase().includes(q.toLowerCase());
@@ -18,6 +19,20 @@ export function CategoryGrid() {
 
   return (
     <section id="categorias" className="bg-ks-bg py-8">
+      {!noResults && (
+        <div className="mx-auto max-w-[900px] px-5 flex justify-end mb-4">
+          <a
+            href="https://x.com/KwanzaStream"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#9146FF] hover:bg-[#772CE8] text-white text-[13px] font-bold rounded shadow transition-colors cursor-pointer"
+          >
+            <Twitter className="w-4 h-4" />
+            <span>Segue-nos no X</span>
+          </a>
+        </div>
+      )}
+
       {noResults ? (
         <div className="mx-auto max-w-[900px] px-6">
           <p className="text-center text-[15px] text-ks-text-secondary py-10">

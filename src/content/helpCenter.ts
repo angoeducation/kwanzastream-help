@@ -18,6 +18,8 @@ export type Article = {
   categorySlug: string;
   readMinutes: number;
   body: string;
+  id?: string;
+  lastModified?: string;
 };
 
 export type WhatsNew = {
@@ -414,6 +416,42 @@ export const popularSearches = [
   "Salos Multicaixa",
   "KS Studio",
 ];
+
+// Let's create static IDs and modified dates for each article to ensure consistency and exact matches
+const articleMetadata: Record<string, { id: string; lastModified: string }> = {
+  "como-criar-conta": { id: "00001001", lastModified: "May 8, 2026, 11:52 AM" },
+  "configurar-primeiro-stream": { id: "00001002", lastModified: "Jun 10, 2026, 03:45 PM" },
+  "requisitos-sistema": { id: "00001003", lastModified: "Apr 15, 2026, 09:15 AM" },
+  "personalizar-perfil": { id: "00001004", lastModified: "May 30, 2026, 06:18 PM" },
+  "requisitos-afiliado": { id: "00002001", lastModified: "May 12, 2026, 02:20 PM" },
+  "configurar-monetizacao": { id: "00002002", lastModified: "May 20, 2026, 10:10 AM" },
+  "candidatura-parceiro": { id: "00003001", lastModified: "Jun 02, 2026, 04:30 PM" },
+  "beneficios-parceiro": { id: "00003002", lastModified: "Jun 05, 2026, 01:15 PM" },
+  "configurar-automod": { id: "00004001", lastModified: "May 08, 2026, 11:52 AM" },
+  "denunciar-utilizador": { id: "00004002", lastModified: "Apr 28, 2026, 12:01 PM" },
+  "seguranca-conta": { id: "00004003", lastModified: "Jun 11, 2026, 10:51 AM" },
+  "pagamento-multicaixa": { id: "00005001", lastModified: "May 28, 2026, 03:54 PM" },
+  "levantar-salos": { id: "00005002", lastModified: "Jun 01, 2026, 05:00 PM" },
+  "vantagens-premium": { id: "00006001", lastModified: "Jun 12, 2026, 08:30 AM" },
+  "cancelar-premium": { id: "00006002", lastModified: "Jun 13, 2026, 09:12 AM" },
+  "instalar-app-android": { id: "00007001", lastModified: "May 15, 2026, 11:40 AM" },
+  "resolver-problemas-app": { id: "00007002", lastModified: "May 18, 2026, 02:50 PM" },
+  "configurar-ks-studio": { id: "00008001", lastModified: "Jun 04, 2026, 10:05 AM" },
+  "cenas-transicoes": { id: "00008002", lastModified: "Jun 06, 2026, 11:30 AM" },
+  "participar-torneio": { id: "00009001", lastModified: "May 22, 2026, 04:15 PM" },
+  "criar-evento": { id: "00009002", lastModified: "May 25, 2026, 01:25 PM" },
+};
+
+// Enrich articles with ID and lastModified
+articles.forEach((a) => {
+  const meta = articleMetadata[a.slug] || {
+    id: `0000${Math.floor(1000 + Math.random() * 9000)}`,
+    lastModified: "Jun 13, 2026, 12:00 PM",
+  };
+  a.id = meta.id;
+  a.lastModified = meta.lastModified;
+});
+
 
 /* ─── Helpers ─── */
 export function getCategory(slug: string) {

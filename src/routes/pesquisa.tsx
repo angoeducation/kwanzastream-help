@@ -2,7 +2,6 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { searchArticles, getCategory, popularSearches } from "@/content/helpCenter";
 import { Breadcrumb } from "@/components/article/Breadcrumb";
-import { ArrowRight, Search } from "lucide-react";
 
 type SearchParams = { q?: string };
 
@@ -35,8 +34,8 @@ function PesquisaPage() {
   };
 
   return (
-    <div className="bg-ks-bg py-14">
-      <div className="mx-auto max-w-[720px] px-6">
+    <div className="bg-[#F7F7F8] py-10 min-h-screen">
+      <div className="mx-auto max-w-[1000px] px-6">
         <Breadcrumb
           items={[
             { label: "Início", to: "/" },
@@ -44,96 +43,98 @@ function PesquisaPage() {
           ]}
         />
 
-        <div className="mt-6">
-          <h1 className="text-[28px] font-semibold text-ks-text">Pesquisar Artigos</h1>
+        {/* Centered Search input */}
+        <div className="mt-6 max-w-[600px] mx-auto">
+          <form onSubmit={handleSubmit}>
+            <div className="flex items-stretch h-[40px] rounded bg-white border border-[#9146FF] overflow-hidden">
+              <input
+                type="search"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Pesquisar..."
+                className="flex-1 bg-transparent outline-none px-4 text-[14px] text-[#0E0E10] placeholder:text-[#ADADB8] min-w-0 border-none"
+              />
+              <button
+                type="submit"
+                className="px-6 bg-[#9146FF] text-white text-[14px] font-bold hover:bg-[#772CE8] transition-colors duration-150 cursor-pointer border-none"
+              >
+                Procurar
+              </button>
+            </div>
+          </form>
         </div>
 
-        {/* Search input */}
-        <form onSubmit={handleSubmit} className="mt-6">
-          <div className="flex items-stretch h-[42px] rounded-lg bg-ks-surface border border-ks-border overflow-hidden focus-within:border-ks-accent transition-colors">
-            <div className="flex items-center pl-3">
-              <Search className="w-4 h-4 text-ks-muted" />
-            </div>
-            <input
-              type="search"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Pesquisa na Base de Conhecimento..."
-              className="flex-1 bg-transparent outline-none px-3 text-[14px] text-ks-text placeholder:text-ks-muted min-w-0"
-            />
-            <button
-              type="submit"
-              className="px-6 bg-ks-accent text-white text-[13px] font-bold hover:bg-ks-accent-hover transition-colors duration-150"
-            >
-              Pesquisar
-            </button>
-          </div>
-        </form>
-
-        {/* Results or suggestions */}
         {q && q.trim() ? (
-          <div className="mt-8">
-            <p className="text-[13px] text-ks-muted mb-4">
-              {results.length} resultado{results.length !== 1 ? "s" : ""} para "{q}"
-            </p>
+          /* Two-column layout */
+          <div className="mt-12 flex flex-col md:flex-row gap-8 items-start">
+            
+            {/* Left Sidebar (25% width) */}
+            <aside className="w-full md:w-[240px] flex-none">
+              <h2 className="text-[13px] font-bold uppercase tracking-wider text-[#53535F] mb-4">
+                Resultados da pesquisa
+              </h2>
+              <div className="border border-gray-200 rounded overflow-hidden bg-white">
+                <button
+                  className="w-full flex items-center justify-between px-4 py-3 bg-[#f0f0ff] border-l-4 border-[#9146FF] text-left text-[14px] font-bold text-[#9146FF] border-none"
+                >
+                  <span>Artigos</span>
+                  <span className="bg-white text-[#9146FF] text-[11px] font-black px-2 py-0.5 rounded-full border border-[#9146FF]">
+                    {results.length}
+                  </span>
+                </button>
+              </div>
+            </aside>
 
-            {results.length > 0 ? (
-              <div className="bg-ks-surface border border-ks-border rounded-lg px-6">
-                <ul>
-                  {results.map((a, idx) => {
-                    const cat = getCategory(a.categorySlug);
-                    return (
-                      <li key={a.slug}>
-                        <Link
-                          to="/artigo/$slug"
-                          params={{ slug: a.slug }}
-                          className={`group flex items-center justify-between py-4 ${
-                            idx < results.length - 1 ? "border-b border-ks-border" : ""
-                          }`}
-                        >
-                          <div className="flex items-center min-w-0">
-                            <span className="w-1.5 h-1.5 rounded-full bg-ks-accent mr-3 flex-none" />
-                            <div className="min-w-0">
-                              <p className="text-[15px] font-medium text-ks-text group-hover:text-ks-accent transition-colors duration-150">
-                                {a.title}
-                              </p>
-                              <p className="text-[12px] text-ks-muted mt-0.5">{cat?.title}</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-2 flex-none ml-4">
-                            <span className="text-[12px] text-ks-muted">{a.readMinutes} min</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-ks-accent opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
-                          </div>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-[16px] font-medium text-ks-text">Nenhum resultado encontrado</p>
-                <p className="mt-2 text-[14px] text-ks-text-secondary">
-                  Tenta usar palavras-chave diferentes ou consulta o{" "}
-                  <Link to="/catalogo" className="text-ks-accent hover:underline">
-                    catálogo de tópicos
-                  </Link>.
-                </p>
-              </div>
-            )}
+            {/* Right Content Area (75% width) */}
+            <main className="flex-1 min-w-0">
+              <h1 className="text-[24px] font-black text-[#0E0E10] mb-1">Artigos</h1>
+              <p className="text-[13px] text-[#53535F] mb-6">
+                Mais de {results.length} resultado{results.length !== 1 ? "s" : ""} • Ordenado por Relevância
+              </p>
+
+              {results.length > 0 ? (
+                <div className="border-t border-gray-200">
+                  {results.map((a) => (
+                    <div key={a.slug} className="py-5 border-b border-gray-200">
+                      <Link
+                        to="/artigo/$slug"
+                        params={{ slug: a.slug }}
+                        className="text-[16px] font-bold text-[#9146FF] hover:underline"
+                      >
+                        {a.title}
+                      </Link>
+                      <p className="text-[12px] text-[#53535F] mt-1.5">
+                        {a.id} • Última modificação {a.lastModified}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16 bg-white border border-gray-200 rounded-lg">
+                  <p className="text-[16px] font-medium text-ks-text">Nenhum resultado encontrado para "{q}"</p>
+                  <p className="mt-2 text-[14px] text-ks-text-secondary">
+                    Tenta usar palavras-chave diferentes ou consulta o{" "}
+                    <Link to="/catalogo" className="text-ks-accent hover:underline">
+                      catálogo de tópicos
+                    </Link>.
+                  </p>
+                </div>
+              )}
+            </main>
           </div>
         ) : (
-          <div className="mt-8">
-            <p className="text-[13px] font-semibold text-ks-muted uppercase tracking-[0.06em] mb-3">
+          /* Popular Searches */
+          <div className="mt-12 max-w-[600px] mx-auto text-center">
+            <p className="text-[13px] font-semibold text-ks-muted uppercase tracking-[0.06em] mb-4">
               Pesquisas populares
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               {popularSearches.map((term) => (
                 <Link
                   key={term}
                   to="/pesquisa"
                   search={{ q: term }}
-                  className="px-3 py-1.5 rounded-full border border-ks-border text-[13px] text-ks-text-secondary hover:border-ks-accent hover:text-ks-accent transition-colors duration-150"
+                  className="px-4 py-2 rounded-full border border-ks-border text-[13px] bg-white text-ks-text-secondary hover:border-ks-accent hover:text-ks-accent transition-colors duration-150"
                 >
                   {term}
                 </Link>

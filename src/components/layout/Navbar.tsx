@@ -6,7 +6,15 @@ import { useAuth } from "@/context/AuthContext";
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [topicsOpen, setTopicsOpen] = useState(false);
   const auth = useAuth();
+
+  useEffect(() => {
+    if (!topicsOpen) return;
+    const onClick = () => setTopicsOpen(false);
+    window.addEventListener("click", onClick);
+    return () => window.removeEventListener("click", onClick);
+  }, [topicsOpen]);
 
   useEffect(() => {
     if (!open) return;
@@ -39,9 +47,93 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center gap-5 text-[13px] font-semibold">
-            <Link to="/catalogo" className="flex items-center gap-1 opacity-90 hover:opacity-100 transition-opacity">
-              Tópicos <ChevronDown className="w-3.5 h-3.5 mt-0.5" />
-            </Link>
+            <div className="relative">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setTopicsOpen((v) => !v);
+                }}
+                className="flex items-center gap-1 opacity-90 hover:opacity-100 transition-opacity cursor-pointer text-[13px] font-semibold text-white bg-transparent border-none outline-none"
+              >
+                Tópicos <ChevronDown className="w-3.5 h-3.5 mt-0.5" />
+              </button>
+
+              {topicsOpen && (
+                <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-1.5 text-[13px] z-50">
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "comecar" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Começar
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "programa-afiliados" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Programa de Afiliados
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "programa-parceiros" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Programa de Parceiros
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "moderacao-seguranca" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Moderação e Segurança
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "pagamentos-salos" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Pagamentos e Salos
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "ks-premium" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Kwanza Stream Premium
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "aplicacao-movel" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Aplicação Móvel
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "ks-studio" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Kwanza Stream Studio
+                  </Link>
+                  <Link
+                    to="/categoria/$slug"
+                    params={{ slug: "eventos-torneios" }}
+                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                  >
+                    Eventos e Torneios
+                  </Link>
+                  <div className="border-t border-gray-100 my-1" />
+                  <Link
+                    to="/catalogo"
+                    className="block px-4 py-2 text-[#9146FF] font-semibold hover:bg-gray-50 transition-colors"
+                  >
+                    Mais tópicos...
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link to="/catalogo" className="opacity-90 hover:opacity-100 transition-opacity">
               Catálogo
             </Link>

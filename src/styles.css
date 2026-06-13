@@ -156,10 +156,10 @@
 }
 .hero-section .search-container {
   display: flex;
+  position: relative;
   max-width: 600px;
   margin: 0 auto 16px;
   border-radius: 6px;
-  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .hero-section input {
@@ -168,6 +168,7 @@
   font-size: 1rem;
   border: none;
   outline: none;
+  border-radius: 6px 0 0 6px;
 }
 .hero-section button {
   background: var(--ks-accent, #9146FF);
@@ -177,6 +178,7 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 0 6px 6px 0;
 }
 .hero-section p {
   color: #666;
@@ -206,8 +208,13 @@
 }
 
 .category-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  transform: translateY(-2px);
+  border-color: #ef539d !important;
+  box-shadow: inset 0 0 0 2px #ef539d, 0 0 0 2px #9146ff !important;
+  transform: none;
+}
+
+.category-card:hover .icon {
+  color: #ef539d !important;
 }
 
 .category-card .icon {
