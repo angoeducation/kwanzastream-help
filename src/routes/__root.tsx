@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
 import { AuthProvider } from "../context/AuthContext";
+import { TawkChat } from "../components/TawkChat";
 
 function NotFoundComponent() {
   return (
@@ -128,6 +129,7 @@ function RootComponent() {
             <Outlet />
           </main>
           <Footer />
+          <TawkChat />
         </div>
       </AuthProvider>
     </QueryClientProvider>
