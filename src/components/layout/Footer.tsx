@@ -42,12 +42,12 @@ export function Footer() {
         <div className="flex flex-col gap-8">
           {/* Contact Support above links */}
           <div className="flex justify-start">
-            <a
-              href="mailto:apoio@kwanzastream.com"
+            <Link
+              to="/contacto"
               className="text-[#9147ff] hover:text-[#772ce8] text-[15px] font-bold flex items-center gap-1 transition-colors"
             >
               Contatar Apoio &rarr;
-            </a>
+            </Link>
           </div>
 
           {/* 4 columns of links */}

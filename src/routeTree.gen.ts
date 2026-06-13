@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PesquisaRouteImport } from './routes/pesquisa'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CatalogoRouteImport } from './routes/catalogo'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
@@ -20,6 +21,11 @@ import { Route as ArtigoSlugRouteImport } from './routes/artigo.$slug'
 const PesquisaRoute = PesquisaRouteImport.update({
   id: '/pesquisa',
   path: '/pesquisa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CatalogoRoute = CatalogoRouteImport.update({
@@ -56,6 +62,7 @@ const ArtigoSlugRoute = ArtigoSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
+  '/contacto': typeof ContactoRoute
   '/pesquisa': typeof PesquisaRoute
   '/artigo/$slug': typeof ArtigoSlugRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
+  '/contacto': typeof ContactoRoute
   '/pesquisa': typeof PesquisaRoute
   '/artigo/$slug': typeof ArtigoSlugRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/catalogo': typeof CatalogoRoute
+  '/contacto': typeof ContactoRoute
   '/pesquisa': typeof PesquisaRoute
   '/artigo/$slug': typeof ArtigoSlugRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/catalogo'
+    | '/contacto'
     | '/pesquisa'
     | '/artigo/$slug'
     | '/auth/callback'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/catalogo'
+    | '/contacto'
     | '/pesquisa'
     | '/artigo/$slug'
     | '/auth/callback'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/catalogo'
+    | '/contacto'
     | '/pesquisa'
     | '/artigo/$slug'
     | '/auth/callback'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CatalogoRoute: typeof CatalogoRoute
+  ContactoRoute: typeof ContactoRoute
   PesquisaRoute: typeof PesquisaRoute
   ArtigoSlugRoute: typeof ArtigoSlugRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/pesquisa'
       fullPath: '/pesquisa'
       preLoaderRoute: typeof PesquisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/catalogo': {
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CatalogoRoute: CatalogoRoute,
+  ContactoRoute: ContactoRoute,
   PesquisaRoute: PesquisaRoute,
   ArtigoSlugRoute: ArtigoSlugRoute,
   AuthCallbackRoute: AuthCallbackRoute,
