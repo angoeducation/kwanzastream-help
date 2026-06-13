@@ -9,7 +9,7 @@ export const categories: Category[] = [
   {
     slug: "comecar",
     title: "Começar",
-    description: "Novo no KwanzaStream? Temos guias para te ajudar a começar.",
+    description: "Novo na Kwanza Stream? Temos guias para te ajudar a começar.",
     icon: "hand-wave",
   },
   {
@@ -27,7 +27,7 @@ export const categories: Category[] = [
   {
     slug: "moderacao-seguranca",
     title: "Moderação e Segurança",
-    description: "Fica em segurança no KwanzaStream. Ferramentas de moderação aqui.",
+    description: "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui.",
     icon: "shield",
   },
   {
@@ -38,20 +38,20 @@ export const categories: Category[] = [
   },
   {
     slug: "ks-premium",
-    title: "KwanzaStream Premium",
+    title: "Kwanza Stream Premium",
     description: "Queres uma experiência premium? Descobre tudo sobre o Premium!",
     icon: "crown",
   },
   {
     slug: "aplicacao-movel",
     title: "Aplicação Móvel",
-    description: "Ajuda com a app KwanzaStream? Temos artigos para todos os dispositivos!",
+    description: "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!",
     icon: "device-mobile",
   },
   {
     slug: "ks-studio",
-    title: "KwanzaStream Studio",
-    description: "À procura de informação sobre o KwanzaStream Studio? Temos aqui!",
+    title: "Kwanza Stream Studio",
+    description: "À procura de informação sobre a Kwanza Stream Studio? Temos aqui!",
     icon: "video-camera",
   },
   {

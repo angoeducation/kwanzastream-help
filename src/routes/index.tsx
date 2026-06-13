@@ -6,7 +6,7 @@ import { CategoryGrid } from "@/components/sections/CategoryGrid";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "KwanzaStream Ajuda" },
+      { title: "Kwanza Stream Ajuda" },
       { name: "description", content: "Pesquisa na Base de Conhecimento ou consulta tópicos específicos abaixo." },
     ],
   }),

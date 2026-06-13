@@ -12,8 +12,8 @@ export const Route = createFileRoute("/pesquisa")({
   }),
   head: () => ({
     meta: [
-      { title: "Pesquisa — KwanzaStream Ajuda" },
-      { name: "description", content: "Pesquisa artigos de ajuda no KwanzaStream." },
+      { title: "Pesquisa — Kwanza Stream Ajuda" },
+      { name: "description", content: "Pesquisa artigos de ajuda na Kwanza Stream." },
     ],
   }),
   component: PesquisaPage,

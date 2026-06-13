@@ -30,14 +30,14 @@ export type WhatsNew = {
 
 /* ─── Categories (9) ─── */
 export const categories: Category[] = [
-  { slug: "comecar", title: "Começar", description: "Novo no KwanzaStream? Temos guias para te ajudar a começar.", articleCount: 12, icon: Pointer },
+  { slug: "comecar", title: "Começar", description: "Novo na Kwanza Stream? Temos guias para te ajudar a começar.", articleCount: 12, icon: Pointer },
   { slug: "programa-afiliados", title: "Programa de Afiliados", description: "Informação sobre o Programa de Afiliados? Estás no lugar certo!", articleCount: 8, icon: Layers },
   { slug: "programa-parceiros", title: "Programa de Parceiros", description: "Questões sobre o Programa de Parceiros? Consulta estes artigos!", articleCount: 15, icon: ShieldCheck },
-  { slug: "moderacao-seguranca", title: "Moderação e Segurança", description: "Fica em segurança no KwanzaStream. Ferramentas de moderação aqui.", articleCount: 10, icon: Shield },
+  { slug: "moderacao-seguranca", title: "Moderação e Segurança", description: "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui.", articleCount: 10, icon: Shield },
   { slug: "pagamentos-salos", title: "Pagamentos e Salos", description: "Problemas com pagamentos via Multicaixa? Salos e fundos aqui.", articleCount: 9, icon: CreditCard },
-  { slug: "ks-premium", title: "KwanzaStream Premium", description: "Queres uma experiência premium? Descobre tudo sobre o Premium!", articleCount: 14, icon: Crown },
-  { slug: "aplicacao-movel", title: "Aplicação Móvel", description: "Ajuda com a app KwanzaStream? Temos artigos para todos os dispositivos!", articleCount: 11, icon: MonitorSmartphone },
-  { slug: "ks-studio", title: "KwanzaStream Studio", description: "À procura de informação sobre o KwanzaStream Studio? Temos aqui!", articleCount: 6, icon: Video },
+  { slug: "ks-premium", title: "Kwanza Stream Premium", description: "Queres uma experiência premium? Descobre tudo sobre o Premium!", articleCount: 14, icon: Crown },
+  { slug: "aplicacao-movel", title: "Aplicação Móvel", description: "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!", articleCount: 11, icon: MonitorSmartphone },
+  { slug: "ks-studio", title: "Kwanza Stream Studio", description: "À procura de informação sobre o Kwanza Stream Studio? Temos aqui!", articleCount: 6, icon: Video },
   { slug: "eventos-torneios", title: "Eventos e Torneios", description: "Detalhes sobre promoções e torneios? Guardamos tudo aqui!", articleCount: 7, icon: Megaphone },
 ];
 
@@ -46,10 +46,10 @@ export const articles: Article[] = [
   /* ── Começar ── */
   {
     slug: "como-criar-conta",
-    title: "Como Criar uma Conta KwanzaStream",
+    title: "Como Criar uma Conta na Kwanza Stream",
     categorySlug: "comecar",
     readMinutes: 4,
-    body: `<p>Criar a tua conta no KwanzaStream é rápido e gratuito. Vai a <strong>kwanzastream.com/registo</strong> e preenche o formulário com o teu nome de utilizador, email e palavra-passe.</p>
+    body: `<p>Criar a tua conta na Kwanza Stream é rápido e gratuito. Vai a <strong>kwanzastream.com/registo</strong> e preenche o formulário com o teu nome de utilizador, email e palavra-passe.</p>
 <h2>Passos para o registo</h2>
 <ul>
 <li>Acede à página de registo no navegador ou na app móvel.</li>
@@ -64,7 +64,7 @@ export const articles: Article[] = [
     title: "Como Configurar o Primeiro Stream",
     categorySlug: "comecar",
     readMinutes: 8,
-    body: `<p>Fazer o teu primeiro stream no KwanzaStream é mais simples do que pensas. Precisas de um computador ou telemóvel, uma ligação estável à internet e software de streaming como o OBS Studio ou o KwanzaStream Studio.</p>
+    body: `<p>Fazer o teu primeiro stream na Kwanza Stream é mais simples do que pensas. Precisas de um computador ou telemóvel, uma ligação estável à internet e software de streaming como o OBS Studio ou o Kwanza Stream Studio.</p>
 <h2>Configuração recomendada</h2>
 <ul>
 <li>Resolução: 1920×1080 (ou 1280×720 para ligações mais lentas)</li>
@@ -74,14 +74,14 @@ export const articles: Article[] = [
 <li>Keyframe: 2 segundos</li>
 </ul>
 <h2>Passos rápidos</h2>
-<p>No painel do KwanzaStream, copia a tua chave de stream. No OBS, vai a Definições → Stream → seleciona "Personalizado" e cola o URL do servidor e a chave. Clica em "Iniciar Stream" e estás no ar!</p>`,
+<p>No painel da Kwanza Stream, copia a tua chave de stream. No OBS, vai a Definições → Stream → seleciona "Personalizado" e cola o URL do servidor e a chave. Clica em "Iniciar Stream" e estás no ar!</p>`,
   },
   {
     slug: "requisitos-sistema",
     title: "Requisitos de Sistema para Streaming",
     categorySlug: "comecar",
     readMinutes: 5,
-    body: `<p>Para fazeres streams de qualidade no KwanzaStream, o teu computador deve cumprir os requisitos mínimos abaixo.</p>
+    body: `<p>Para fazeres streams de qualidade na Kwanza Stream, o teu computador deve cumprir os requisitos mínimos abaixo.</p>
 <h2>Requisitos mínimos</h2>
 <ul>
 <li>Processador: Intel i5 4ª geração ou AMD Ryzen 3 (ou superior)</li>
@@ -98,10 +98,10 @@ export const articles: Article[] = [
     title: "Requisitos para se Tornar Afiliado",
     categorySlug: "programa-afiliados",
     readMinutes: 6,
-    body: `<p>O Programa de Afiliados do KwanzaStream permite que criadores emergentes comecem a monetizar o seu conteúdo. Para te qualificares, precisas de cumprir os seguintes critérios:</p>
+    body: `<p>O Programa de Afiliados da Kwanza Stream permite que criadores emergentes comecem a monetizar o seu conteúdo. Para te qualificares, precisas de cumprir os seguintes critérios:</p>
 <h2>Critérios de elegibilidade</h2>
 <ul>
-<li>Pelo menos 50 seguidores na tua conta KwanzaStream</li>
+<li>Pelo menos 50 seguidores na tua conta Kwanza Stream</li>
 <li>Mínimo de 500 minutos de transmissão nos últimos 30 dias</li>
 <li>Pelo menos 7 dias únicos de transmissão nos últimos 30 dias</li>
 <li>Média de 3 ou mais espectadores simultâneos</li>
@@ -128,7 +128,7 @@ export const articles: Article[] = [
     title: "Guia de Candidatura a Parceiro",
     categorySlug: "programa-parceiros",
     readMinutes: 10,
-    body: `<p>O Programa de Parceiros é o nível mais alto de reconhecimento no KwanzaStream. Os parceiros têm acesso a ferramentas exclusivas, suporte prioritário e maior percentagem de receita.</p>
+    body: `<p>O Programa de Parceiros é o nível mais alto de reconhecimento na Kwanza Stream. Os parceiros têm acesso a ferramentas exclusivas, suporte prioritário e maior percentagem de receita.</p>
 <h2>Como candidatar-se</h2>
 <ul>
 <li>Deves ser Afiliado há pelo menos 3 meses.</li>
@@ -136,21 +136,21 @@ export const articles: Article[] = [
 <li>Pelo menos 12 streams únicos nos últimos 30 dias.</li>
 <li>Cumprir as Diretrizes da Comunidade sem infrações activas.</li>
 </ul>
-<p>Submete a tua candidatura em Painel do Criador → Parceiros → Candidatar. A equipa do KwanzaStream revê candidaturas semanalmente e responde dentro de 15 dias úteis.</p>`,
+<p>Submete a tua candidatura em Painel do Criador → Parceiros → Candidatar. A equipa da Kwanza Stream revê candidaturas semanalmente e responde dentro de 15 dias úteis.</p>`,
   },
   {
     slug: "beneficios-parceiro",
     title: "Benefícios do Programa de Parceiros",
     categorySlug: "programa-parceiros",
     readMinutes: 5,
-    body: `<p>Ser Parceiro KwanzaStream abre portas a um conjunto exclusivo de ferramentas e vantagens.</p>
+    body: `<p>Ser Parceiro da Kwanza Stream abre portas a um conjunto exclusivo de ferramentas e vantagens.</p>
 <h2>Vantagens principais</h2>
 <ul>
 <li>Percentagem de receita mais elevada (até 70% em subscrições).</li>
 <li>Selo de verificação exclusivo no perfil e no chat.</li>
 <li>Acesso ao suporte prioritário 24/7.</li>
 <li>Possibilidade de transcodificação garantida em múltiplas qualidades.</li>
-<li>Convites para eventos exclusivos KwanzaStream em Luanda.</li>
+<li>Convites para eventos exclusivos da Kwanza Stream em Luanda.</li>
 </ul>
 <p>Os parceiros também podem personalizar emotes ilimitados, criar pontos de canal e aceder a análises avançadas de audiência no painel.</p>`,
   },
@@ -160,7 +160,7 @@ export const articles: Article[] = [
     title: "Como Configurar o AutoMod",
     categorySlug: "moderacao-seguranca",
     readMinutes: 6,
-    body: `<p>O AutoMod é a ferramenta de moderação automática do KwanzaStream que filtra mensagens potencialmente ofensivas antes de aparecerem no chat.</p>
+    body: `<p>O AutoMod é a ferramenta de moderação automática da Kwanza Stream que filtra mensagens potencialmente ofensivas antes de aparecerem no chat.</p>
 <h2>Como ativar</h2>
 <ul>
 <li>Vai ao Painel do Criador → Moderação → AutoMod.</li>
@@ -174,7 +174,7 @@ export const articles: Article[] = [
     title: "Como Denunciar um Utilizador",
     categorySlug: "moderacao-seguranca",
     readMinutes: 4,
-    body: `<p>Se encontrares comportamento que viole as Diretrizes da Comunidade do KwanzaStream, podes denunciar o utilizador directamente na plataforma.</p>
+    body: `<p>Se encontrares comportamento que viole as Diretrizes da Comunidade da Kwanza Stream, podes denunciar o utilizador directamente na plataforma.</p>
 <h2>Passos para denunciar</h2>
 <ul>
 <li>Clica no nome do utilizador no chat ou no perfil.</li>
@@ -183,7 +183,7 @@ export const articles: Article[] = [
 <li>Adiciona uma descrição opcional com detalhes.</li>
 <li>Submete a denúncia.</li>
 </ul>
-<p>A equipa de Confiança e Segurança do KwanzaStream analisa todas as denúncias dentro de 24 horas. As denúncias são confidenciais — o utilizador denunciado não saberá quem o denunciou.</p>`,
+<p>A equipa de Confiança e Segurança da Kwanza Stream analisa todas as denúncias dentro de 24 horas. As denúncias são confidenciais — o utilizador denunciado não saberá quem o denunciou.</p>`,
   },
   /* ── Pagamentos e Salos ── */
   {
@@ -191,7 +191,7 @@ export const articles: Article[] = [
     title: "Como Pagar via Multicaixa Express",
     categorySlug: "pagamentos-salos",
     readMinutes: 5,
-    body: `<p>O Multicaixa Express é o método de pagamento mais popular no KwanzaStream para utilizadores em Angola. Permite comprar Bits, subscrições e Premium directamente do teu telemóvel.</p>
+    body: `<p>O Multicaixa Express é o método de pagamento mais popular na Kwanza Stream para utilizadores em Angola. Permite comprar Bits, subscrições e Premium directamente do teu telemóvel.</p>
 <h2>Como funciona</h2>
 <ul>
 <li>No momento do pagamento, seleciona "Multicaixa Express" como método.</li>
@@ -206,7 +206,7 @@ export const articles: Article[] = [
     title: "Como Levantar os Teus Salos",
     categorySlug: "pagamentos-salos",
     readMinutes: 6,
-    body: `<p>Os Salos são a moeda de receita do criador no KwanzaStream. Quando acumulas receita de subscrições, Bits e anúncios, o valor aparece como Salos no teu painel.</p>
+    body: `<p>Os Salos são a moeda de receita do criador na Kwanza Stream. Quando acumulas receita de subscrições, Bits e anúncios, o valor aparece como Salos no teu painel.</p>
 <h2>Requisitos para levantamento</h2>
 <ul>
 <li>Saldo mínimo de 10.000 AOA em Salos.</li>
@@ -216,13 +216,13 @@ export const articles: Article[] = [
 <h2>Como levantar</h2>
 <p>Vai a Painel do Criador → Pagamentos → Levantar Salos. Seleciona o montante e o método. Os levantamentos via Multicaixa Express são processados em até 48 horas. Transferências bancárias podem demorar até 5 dias úteis.</p>`,
   },
-  /* ── KwanzaStream Premium ── */
+  /* ── Kwanza Stream Premium ── */
   {
     slug: "vantagens-premium",
-    title: "Vantagens do KwanzaStream Premium",
+    title: "Vantagens do Kwanza Stream Premium",
     categorySlug: "ks-premium",
     readMinutes: 5,
-    body: `<p>O KwanzaStream Premium oferece uma experiência superior de visualização com funcionalidades exclusivas.</p>
+    body: `<p>O Kwanza Stream Premium oferece uma experiência superior de visualização com funcionalidades exclusivas.</p>
 <h2>O que inclui</h2>
 <ul>
 <li>Visualização sem anúncios em todos os canais.</li>
@@ -242,7 +242,7 @@ export const articles: Article[] = [
     body: `<p>Podes cancelar a tua subscrição Premium a qualquer momento. O cancelamento entra em vigor no final do período de faturação actual.</p>
 <h2>Passos para cancelar</h2>
 <ul>
-<li>Vai a Definições → Subscrições → KwanzaStream Premium.</li>
+<li>Vai a Definições → Subscrições → Kwanza Stream Premium.</li>
 <li>Clica em "Cancelar Subscrição".</li>
 <li>Confirma o cancelamento na janela de diálogo.</li>
 </ul>
@@ -254,13 +254,13 @@ export const articles: Article[] = [
     title: "Como Instalar a App no Android",
     categorySlug: "aplicacao-movel",
     readMinutes: 4,
-    body: `<p>A app KwanzaStream está disponível gratuitamente na Google Play Store para dispositivos Android 8.0 ou superior.</p>
+    body: `<p>A app Kwanza Stream está disponível gratuitamente na Google Play Store para dispositivos Android 8.0 ou superior.</p>
 <h2>Instalação</h2>
 <ul>
 <li>Abre a Google Play Store no teu dispositivo.</li>
-<li>Pesquisa por "KwanzaStream".</li>
+<li>Pesquisa por "Kwanza Stream".</li>
 <li>Toca em "Instalar" e aguarda o download.</li>
-<li>Abre a app e faz login com a tua conta KwanzaStream.</li>
+<li>Abre a app e faz login com a tua conta Kwanza Stream.</li>
 </ul>
 <p>A app permite ver streams ao vivo, interagir no chat, enviar Bits, gerir o teu canal e até fazer streams directamente do telemóvel. Certifica-te de que tens a versão mais recente para acederes a todas as funcionalidades.</p>`,
   },
@@ -269,28 +269,28 @@ export const articles: Article[] = [
     title: "Resolver Problemas na App Móvel",
     categorySlug: "aplicacao-movel",
     readMinutes: 5,
-    body: `<p>Se estás a ter problemas com a app KwanzaStream no teu telemóvel, segue estes passos de resolução antes de contactares o suporte.</p>
+    body: `<p>Se estás a ter problemas com a app da Kwanza Stream no teu telemóvel, segue estes passos de resolução antes de contactares o suporte.</p>
 <h2>Problemas comuns e soluções</h2>
 <ul>
-<li><strong>App não abre:</strong> Limpa a cache da app em Definições → Apps → KwanzaStream → Limpar Cache.</li>
+<li><strong>App não abre:</strong> Limpa a cache da app em Definições → Apps → Kwanza Stream → Limpar Cache.</li>
 <li><strong>Stream não carrega:</strong> Verifica a tua ligação à internet. Tenta mudar de Wi-Fi para dados móveis ou vice-versa.</li>
 <li><strong>Chat não funciona:</strong> Faz logout e login novamente. Se persistir, reinstala a app.</li>
-<li><strong>Notificações não chegam:</strong> Vai a Definições do telemóvel → Notificações → KwanzaStream e garante que estão ativadas.</li>
+<li><strong>Notificações não chegam:</strong> Vai a Definições do telemóvel → Notificações → Kwanza Stream e garante que estão ativadas.</li>
 </ul>
 <p>Se o problema persistir após estes passos, contacta o suporte em apoio@kwanzastream.com com capturas de ecrã e a versão da app instalada.</p>`,
   },
-  /* ── KwanzaStream Studio ── */
+  /* ── Kwanza Stream Studio ── */
   {
     slug: "configurar-ks-studio",
-    title: "Configurar o KwanzaStream Studio",
+    title: "Configurar o Kwanza Stream Studio",
     categorySlug: "ks-studio",
     readMinutes: 7,
-    body: `<p>O KwanzaStream Studio é o software de streaming oficial, desenhado para ser fácil de usar mesmo para quem nunca fez um stream antes.</p>
+    body: `<p>O Kwanza Stream Studio é o software de streaming oficial, desenhado para ser fácil de usar mesmo para quem nunca fez um stream antes.</p>
 <h2>Instalação e configuração</h2>
 <ul>
 <li>Descarrega o KS Studio em kwanzastream.com/studio.</li>
 <li>Instala e abre o programa — ele detecta automaticamente a tua webcam e microfone.</li>
-<li>Faz login com a tua conta KwanzaStream (a chave de stream é configurada automaticamente).</li>
+<li>Faz login com a tua conta Kwanza Stream (a chave de stream é configurada automaticamente).</li>
 <li>Escolhe um layout predefinido ou personaliza as tuas cenas.</li>
 </ul>
 <h2>Primeiros passos</h2>
@@ -318,7 +318,7 @@ export const articles: Article[] = [
     title: "Como Participar num Torneio",
     categorySlug: "eventos-torneios",
     readMinutes: 5,
-    body: `<p>O KwanzaStream organiza regularmente torneios de gaming para a comunidade angolana, com prémios em dinheiro e equipamento.</p>
+    body: `<p>A Kwanza Stream organiza regularmente torneios de gaming para a comunidade angolana, com prémios em dinheiro e equipamento.</p>
 <h2>Como participar</h2>
 <ul>
 <li>Consulta os torneios activos em kwanzastream.com/torneios.</li>
@@ -326,7 +326,7 @@ export const articles: Article[] = [
 <li>Clica em "Inscrever" e preenche o formulário (individual ou equipa).</li>
 <li>Confirma a inscrição por email.</li>
 </ul>
-<p>Os torneios são transmitidos ao vivo no canal oficial KwanzaStream Esports. Os participantes devem fazer stream do seu ponto de vista durante os jogos. Consulta as regras específicas de cada torneio para mais detalhes.</p>`,
+<p>Os torneios são transmitidos ao vivo no canal oficial Kwanza Stream Esports. Os participantes devem fazer stream do seu ponto de vista durante os jogos. Consulta as regras específicas de cada torneio para mais detalhes.</p>`,
   },
   {
     slug: "criar-evento",
@@ -365,7 +365,7 @@ export const articles: Article[] = [
     title: "Proteger a Tua Conta com 2FA",
     categorySlug: "moderacao-seguranca",
     readMinutes: 4,
-    body: `<p>A autenticação de dois fatores (2FA) adiciona uma camada extra de segurança à tua conta KwanzaStream.</p>
+    body: `<p>A autenticação de dois fatores (2FA) adiciona uma camada extra de segurança à tua conta Kwanza Stream.</p>
 <h2>Como ativar o 2FA</h2>
 <ul>
 <li>Vai a Definições → Segurança → Autenticação de Dois Fatores.</li>
@@ -386,7 +386,7 @@ export const whatsNew: WhatsNew[] = [
   {
     date: "MAI 2026",
     badge: "NOVO",
-    title: "App Móvel KwanzaStream 3.0",
+    title: "App Móvel Kwanza Stream 3.0",
     description: "A nova app permite streaming em 1080p60 directamente do telemóvel, com vista de moderação integrada e definições de notificação melhoradas.",
     slug: "app-movel-3",
   },

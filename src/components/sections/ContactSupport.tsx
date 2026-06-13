@@ -33,7 +33,7 @@ export function ContactSupport() {
 
         <div className="bg-ks-surface border border-ks-border rounded-lg p-7">
           <h3 className="text-[18px] font-semibold text-ks-text">Comunidade</h3>
-          <p className="mt-1 text-[13px] text-ks-muted">Junta-te a outros criadores KwanzaStream.</p>
+          <p className="mt-1 text-[13px] text-ks-muted">Junta-te a outros criadores da Kwanza Stream.</p>
 
           <div className="mt-4">
             {community.map(({ Icon, label, meta }, i) => (

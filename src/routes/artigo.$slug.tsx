@@ -14,8 +14,8 @@ export const Route = createFileRoute("/artigo/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.article.title} — KwanzaStream Ajuda` },
-          { name: "description", content: `${loaderData.cat?.title ?? ""} — guia oficial KwanzaStream.` },
+          { title: `${loaderData.article.title} — Kwanza Stream Ajuda` },
+          { name: "description", content: `${loaderData.cat?.title ?? ""} — guia oficial da Kwanza Stream.` },
         ]
       : [],
   }),

@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 const columns = [
   {
-    title: "KwanzaStream",
+    title: "Kwanza Stream",
     links: ["Sobre", "Blog", "Marca", "Carreiras", "Imprensa"],
   },
   {
@@ -30,11 +30,11 @@ export function Footer() {
               K
             </div>
             <span className="font-['Rajdhani'] font-bold text-[22px] tracking-wider text-white">
-              KwanzaStream
+              Kwanza Stream
             </span>
           </Link>
           <p className="text-[12px] leading-relaxed text-[#adadb8]/70">
-            A plataforma de streaming feita para criadores angolanos.
+            A Kwanza Stream é a plataforma de streaming feita para criadores angolanos.
           </p>
         </div>
 

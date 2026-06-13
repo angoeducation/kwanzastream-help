@@ -5,8 +5,8 @@ import { Breadcrumb } from "@/components/article/Breadcrumb";
 export const Route = createFileRoute("/catalogo")({
   head: () => ({
     meta: [
-      { title: "Catálogo de Tópicos — KwanzaStream Ajuda" },
-      { name: "description", content: "Explora todos os tópicos de ajuda do KwanzaStream organizados por categoria." },
+      { title: "Catálogo de Tópicos — Kwanza Stream Ajuda" },
+      { name: "description", content: "Explora todos os tópicos de ajuda da Kwanza Stream organizados por categoria." },
     ],
   }),
   component: CatalogoPage,
@@ -26,7 +26,7 @@ function CatalogoPage() {
         <div className="mt-6">
           <h1 className="text-[28px] font-semibold text-ks-text">Catálogo de Tópicos</h1>
           <p className="mt-2 text-[15px] text-ks-text-secondary max-w-2xl">
-            Explora todas as categorias de ajuda disponíveis no KwanzaStream.
+            Explora todas as categorias de ajuda disponíveis na Kwanza Stream.
           </p>
         </div>
 

@@ -28,12 +28,12 @@ export function Navbar() {
         {/* Left Section */}
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 hover:opacity-90">
-            {/* KwanzaStream Logo Block */}
+            {/* Kwanza Stream Logo Block */}
             <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-[#9147ff] text-[15px] select-none">
               K
             </div>
             <span className="font-['Rajdhani'] font-bold text-[20px] tracking-wider">
-              KwanzaStream
+              Kwanza Stream
             </span>
           </Link>
 

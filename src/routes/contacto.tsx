@@ -7,8 +7,8 @@ import { User, Mail, Layers, FileText, MessageSquare, Send, CheckCircle } from "
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contatar Apoio — KwanzaStream Ajuda" },
-      { name: "description", content: "Envia um pedido de suporte para a equipa do KwanzaStream." },
+      { title: "Contatar Apoio — Kwanza Stream Ajuda" },
+      { name: "description", content: "Envia um pedido de suporte para a equipa da Kwanza Stream." },
     ],
   }),
   component: ContactPage,

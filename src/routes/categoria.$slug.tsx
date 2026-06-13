@@ -12,7 +12,7 @@ export const Route = createFileRoute("/categoria/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.cat.title} — KwanzaStream Ajuda` },
+          { title: `${loaderData.cat.title} — Kwanza Stream Ajuda` },
           { name: "description", content: loaderData.cat.description },
         ]
       : [],
