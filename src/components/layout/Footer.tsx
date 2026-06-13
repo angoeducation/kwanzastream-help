@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
 
 const columns = [
   {
@@ -20,9 +22,23 @@ const columns = [
 ];
 
 export function Footer() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Flattened list of links for mobile display matching image 5
+  const allMobileLinks = [
+    "Sobre",
+    "Carreiras",
+    "Blog",
+    "Imprensa",
+    "Marca",
+    "Desenvolvedores",
+    "Plataformas",
+  ];
+
   return (
     <footer className="bg-[#0e0e0e] text-[#adadb8] py-12 mt-auto border-t border-[#1f1f23]">
-      <div className="mx-auto max-w-[1200px] px-6 grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
+      {/* Desktop Footer (hidden on mobile) */}
+      <div className="hidden md:grid mx-auto max-w-[1200px] px-6 grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
         {/* Left Side: White Logo Block */}
         <div className="flex flex-col gap-4">
           <Link to="/" className="flex items-center gap-2 hover:opacity-90">
@@ -44,7 +60,7 @@ export function Footer() {
           <div className="flex justify-start">
             <Link
               to="/contacto"
-              className="text-[#9147ff] hover:text-[#772ce8] text-[15px] font-bold flex items-center gap-1 transition-colors"
+              className="text-[#9147ff] hover:text-[#772ce8] text-[15px] font-bold flex items-center gap-1 transition-colors animate-in fade-in"
             >
               Contatar Apoio &rarr;
             </Link>
@@ -73,6 +89,58 @@ export function Footer() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Mobile Collapsible Footer (shown on mobile only) */}
+      <div className="md:hidden px-6">
+        {/* Language Selector matching image 5 */}
+        <div className="flex items-center justify-end mb-6">
+          <select 
+            className="bg-[#1f1f23] text-white text-[13px] font-semibold px-3 py-2 rounded border border-transparent focus:border-[#9147ff] outline-none"
+            defaultValue="pt-AO"
+          >
+            <option value="pt-AO">Português - Angola</option>
+            <option value="en-US">English - United States</option>
+          </select>
+        </div>
+
+        <div className="flex items-center justify-between py-4 border-b border-[#1f1f23]">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-90">
+            <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-black text-[15px] select-none">
+              K
+            </div>
+          </Link>
+          
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-1 hover:text-white transition-colors border-none bg-transparent cursor-pointer"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+
+        {/* Collapsible links list */}
+        {mobileOpen && (
+          <div className="mt-4 flex flex-col text-[14px] font-semibold">
+            {/* Contatar Apoio item */}
+            <Link
+              to="/contacto"
+              className="py-3 border-b border-[#1f1f23] hover:text-white text-[#9147ff]"
+            >
+              Contatar Apoio
+            </Link>
+
+            {allMobileLinks.map((link) => (
+              <Link
+                key={link}
+                to="/"
+                className="py-3 border-b border-[#1f1f23] hover:text-white text-[#adadb8]"
+              >
+                {link}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </footer>
   );
