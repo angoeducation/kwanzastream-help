@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
-import { getToken, fetchUser, clearToken, buildLoginUrl } from '@/lib/auth';
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { getToken, fetchUser, clearToken, buildLoginUrl } from "@/lib/auth";
 
 export interface User {
   id: string;
@@ -33,13 +33,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     fetchUser(token)
-      .then(u => {
+      .then((u) => {
         if (u) {
           // Add compatibility mappings for Navbar and other components
           const compatUser = {
             ...u,
             profile_image_url: u.profile_image_url || u.avatar || "",
-            login: u.login || u.display_name?.toLowerCase().replace(/\s+/g, '') || ""
+            login: u.login || u.display_name?.toLowerCase().replace(/\s+/g, "") || "",
           };
           setUser(compatUser);
         } else {

@@ -28,12 +28,19 @@ export function FeedbackWidget() {
           </p>
         </div>
       ) : choice === "down" ? (
-        <form onSubmit={handleSubmit} className="space-y-4 bg-ks-surface-2 border border-ks-border p-5 rounded-lg animate-fade-in">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 bg-ks-surface-2 border border-ks-border p-5 rounded-lg animate-fade-in"
+        >
           <div className="flex items-start gap-3">
             <ThumbsDown className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
             <div>
-              <h4 className="text-[14px] font-semibold text-ks-text">Como podemos melhorar este artigo?</h4>
-              <p className="text-[12px] text-ks-muted mt-0.5">O teu comentário é anónimo e ajuda-nos a atualizar a informação.</p>
+              <h4 className="text-[14px] font-semibold text-ks-text">
+                Como podemos melhorar este artigo?
+              </h4>
+              <p className="text-[12px] text-ks-muted mt-0.5">
+                O teu comentário é anónimo e ajuda-nos a atualizar a informação.
+              </p>
             </div>
           </div>
           <textarea
@@ -64,7 +71,9 @@ export function FeedbackWidget() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-ks-surface-2 border border-ks-border p-5 rounded-lg">
           <div>
             <h4 className="text-[14px] font-semibold text-ks-text">Este artigo foi útil?</h4>
-            <p className="text-[12px] text-ks-muted mt-0.5">Diz-nos a tua opinião para continuarmos a melhorar.</p>
+            <p className="text-[12px] text-ks-muted mt-0.5">
+              Diz-nos a tua opinião para continuarmos a melhorar.
+            </p>
           </div>
           <div className="flex items-center gap-2">
             <button

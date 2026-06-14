@@ -36,12 +36,7 @@ function PesquisaPage() {
   return (
     <div className="bg-[#F7F7F8] py-10 min-h-screen">
       <div className="mx-auto max-w-[1000px] px-6">
-        <Breadcrumb
-          items={[
-            { label: "Início", to: "/" },
-            { label: "Pesquisa" },
-          ]}
-        />
+        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: "Pesquisa" }]} />
 
         {/* Centered Search input */}
         <div className="mt-6 max-w-[600px] mx-auto">
@@ -67,16 +62,13 @@ function PesquisaPage() {
         {q && q.trim() ? (
           /* Two-column layout */
           <div className="mt-12 flex flex-col md:flex-row gap-8 items-start">
-            
             {/* Left Sidebar (25% width) */}
             <aside className="w-full md:w-[240px] flex-none">
               <h2 className="text-[13px] font-bold uppercase tracking-wider text-[#53535F] mb-4">
                 Resultados da pesquisa
               </h2>
               <div className="border border-gray-200 rounded overflow-hidden bg-white">
-                <button
-                  className="w-full flex items-center justify-between px-4 py-3 bg-[#f0f0ff] border-l-4 border-[#9146FF] text-left text-[14px] font-bold text-[#9146FF] border-none"
-                >
+                <button className="w-full flex items-center justify-between px-4 py-3 bg-[#f0f0ff] border-l-4 border-[#9146FF] text-left text-[14px] font-bold text-[#9146FF] border-none">
                   <span>Artigos</span>
                   <span className="bg-white text-[#9146FF] text-[11px] font-black px-2 py-0.5 rounded-full border border-[#9146FF]">
                     {results.length}
@@ -89,7 +81,8 @@ function PesquisaPage() {
             <main className="flex-1 min-w-0">
               <h1 className="text-[24px] font-black text-[#0E0E10] mb-1">Artigos</h1>
               <p className="text-[13px] text-[#53535F] mb-6">
-                Mais de {results.length} resultado{results.length !== 1 ? "s" : ""} • Ordenado por Relevância
+                Mais de {results.length} resultado{results.length !== 1 ? "s" : ""} • Ordenado por
+                Relevância
               </p>
 
               {results.length > 0 ? (
@@ -116,20 +109,33 @@ function PesquisaPage() {
                       className="inline-flex items-center gap-2 text-[18px] font-bold text-[#0E0E10] hover:text-[#9146FF] transition-colors cursor-pointer"
                     >
                       <span>Contactar Suporte</span>
-                      <svg className="w-4.5 h-4.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      <svg
+                        className="w-4.5 h-4.5 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                        />
                       </svg>
                     </Link>
                   </div>
                 </>
               ) : (
                 <div className="text-center py-16 bg-white border border-gray-200 rounded-lg">
-                  <p className="text-[16px] font-medium text-ks-text">Nenhum resultado encontrado para "{q}"</p>
+                  <p className="text-[16px] font-medium text-ks-text">
+                    Nenhum resultado encontrado para "{q}"
+                  </p>
                   <p className="mt-2 text-[14px] text-ks-text-secondary">
                     Tenta usar palavras-chave diferentes ou consulta o{" "}
                     <Link to="/catalogo" className="text-ks-accent hover:underline">
                       catálogo de tópicos
-                    </Link>.
+                    </Link>
+                    .
                   </p>
                 </div>
               )}

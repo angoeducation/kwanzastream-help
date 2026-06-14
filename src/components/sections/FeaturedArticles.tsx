@@ -39,7 +39,10 @@ export function FeaturedArticles() {
           })}
         </ul>
 
-        <a href="#" className="inline-block mt-6 text-[14px] font-medium text-ks-accent hover:underline">
+        <a
+          href="#"
+          className="inline-block mt-6 text-[14px] font-medium text-ks-accent hover:underline"
+        >
           Ver todos os artigos →
         </a>
       </div>

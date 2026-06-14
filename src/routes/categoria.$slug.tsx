@@ -20,7 +20,9 @@ export const Route = createFileRoute("/categoria/$slug")({
   notFoundComponent: () => (
     <div className="py-24 text-center px-4">
       <h1 className="text-[28px] font-semibold mb-3 text-ks-text">Categoria não encontrada</h1>
-      <Link to="/" className="text-ks-accent hover:underline">Voltar à Central de Ajuda</Link>
+      <Link to="/" className="text-ks-accent hover:underline">
+        Voltar à Central de Ajuda
+      </Link>
     </div>
   ),
   errorComponent: () => (
@@ -39,12 +41,7 @@ function CategoryPage() {
   return (
     <div className="bg-ks-bg py-14">
       <div className="mx-auto max-w-[960px] px-6">
-        <Breadcrumb
-          items={[
-            { label: "Início", to: "/" },
-            { label: cat.title },
-          ]}
-        />
+        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: cat.title }]} />
 
         <div className="mt-6">
           <h1 className="text-[28px] font-semibold text-ks-text">{cat.title}</h1>
@@ -111,8 +108,18 @@ function CategoryPage() {
             className="inline-flex items-center gap-2 text-[18px] font-bold text-[#0E0E10] hover:text-[#9146FF] transition-colors cursor-pointer"
           >
             <span>Contactar Suporte</span>
-            <svg className="w-4.5 h-4.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            <svg
+              className="w-4.5 h-4.5 mt-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2.5}
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+              />
             </svg>
           </Link>
         </div>

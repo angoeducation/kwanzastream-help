@@ -82,10 +82,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Kwanza Stream Help Center" },
-      { name: "description", content: "Pesquisa artigos, guias e tutoriais sobre a Kwanza Stream, a plataforma de streaming para criadores angolanos." },
+      {
+        name: "description",
+        content:
+          "Pesquisa artigos, guias e tutoriais sobre a Kwanza Stream, a plataforma de streaming para criadores angolanos.",
+      },
       { name: "author", content: "Kwanza Stream" },
       { property: "og:title", content: "Kwanza Stream Help Center" },
-      { property: "og:description", content: "Pesquisa artigos, guias e tutoriais sobre a Kwanza Stream." },
+      {
+        property: "og:description",
+        content: "Pesquisa artigos, guias e tutoriais sobre a Kwanza Stream.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@KwanzaStream" },
@@ -93,7 +100,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
     ],
   }),

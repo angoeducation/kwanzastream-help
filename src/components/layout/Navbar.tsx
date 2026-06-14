@@ -34,7 +34,6 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-[100] bg-[#9147ff] text-white">
       <div className="mx-auto max-w-[1200px] px-6 h-[50px] flex items-center justify-between">
-        
         {/* Left Section */}
         <div className="flex items-center gap-6">
           {/* Hamburger menu for mobile (Far Left) */}
@@ -197,10 +196,7 @@ export function Navbar() {
 
               {profileOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded shadow-lg border border-gray-150 py-1 text-[13px] z-50 text-[#0E0E10]">
-                  <Link
-                    to="/"
-                    className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
-                  >
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]">
                     Página inicial
                   </Link>
                   <a
@@ -211,10 +207,7 @@ export function Navbar() {
                   >
                     Voltar à Kwanza Stream
                   </a>
-                  <Link
-                    to="/contacto"
-                    className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
-                  >
+                  <Link to="/contacto" className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]">
                     Contactar Suporte
                   </Link>
                   <div className="border-t border-gray-100 my-1" />
@@ -260,7 +253,7 @@ export function Navbar() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            
+
             <nav className="mt-4 flex flex-col text-[14px] font-bold">
               <Link
                 to="/"
@@ -269,7 +262,7 @@ export function Navbar() {
               >
                 Início
               </Link>
-              
+
               {/* Collapsible Tópicos accordion */}
               <div>
                 <button

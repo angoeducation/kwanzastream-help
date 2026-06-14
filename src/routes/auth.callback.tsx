@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
-import { exchangeCodeForToken, fetchUser, saveToken } from '@/lib/auth';
-import { useAuth } from '@/context/AuthContext';
+import { useEffect } from "react";
+import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import { exchangeCodeForToken, fetchUser, saveToken } from "@/lib/auth";
+import { useAuth } from "@/context/AuthContext";
 
-export const Route = createFileRoute('/auth/callback')({
+export const Route = createFileRoute("/auth/callback")({
   validateSearch: (search: Record<string, unknown>) => {
     return {
       code: search.code as string | undefined,
@@ -16,22 +16,22 @@ export const Route = createFileRoute('/auth/callback')({
 
 function AuthCallbackPage() {
   const navigate = useNavigate();
-  const search = useSearch({ from: '/auth/callback' });
+  const search = useSearch({ from: "/auth/callback" });
   const { setUser } = useAuth();
 
   useEffect(() => {
     async function handleCallback() {
       if (search.error) {
-        console.error('OAuth error:', search.error);
-        navigate({ to: '/' });
+        console.error("OAuth error:", search.error);
+        navigate({ to: "/" });
         return;
       }
 
       // Valida state para prevenir CSRF
-      const savedState = sessionStorage.getItem('oauth_state');
+      const savedState = sessionStorage.getItem("oauth_state");
       if (!search.code || search.state !== savedState) {
-        console.error('Invalid code or state mismatch');
-        navigate({ to: '/' });
+        console.error("Invalid code or state mismatch");
+        navigate({ to: "/" });
         return;
       }
 
@@ -42,10 +42,10 @@ function AuthCallbackPage() {
         if (user) {
           setUser(user);
         }
-        navigate({ to: '/' });
+        navigate({ to: "/" });
       } catch (error) {
-        console.error('Erro no callback auth:', error);
-        navigate({ to: '/' });
+        console.error("Erro no callback auth:", error);
+        navigate({ to: "/" });
       }
     }
 

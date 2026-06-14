@@ -1,5 +1,13 @@
 import {
-  Pointer, Layers, ShieldCheck, Shield, CreditCard, Crown, MonitorSmartphone, Video, Megaphone,
+  Pointer,
+  Layers,
+  ShieldCheck,
+  Shield,
+  CreditCard,
+  Crown,
+  MonitorSmartphone,
+  Video,
+  Megaphone,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,15 +40,69 @@ export type WhatsNew = {
 
 /* ─── Categories (9) ─── */
 export const categories: Category[] = [
-  { slug: "comecar", title: "Começar", description: "Novo na Kwanza Stream? Temos guias para te ajudar a começar.", articleCount: 12, icon: Pointer },
-  { slug: "programa-afiliados", title: "Programa de Afiliados", description: "Informação sobre o Programa de Afiliados? Estás no lugar certo!", articleCount: 8, icon: Layers },
-  { slug: "programa-parceiros", title: "Programa de Parceiros", description: "Questões sobre o Programa de Parceiros? Consulta estes artigos!", articleCount: 15, icon: ShieldCheck },
-  { slug: "moderacao-seguranca", title: "Moderação e Segurança", description: "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui.", articleCount: 10, icon: Shield },
-  { slug: "pagamentos-salos", title: "Pagamentos e Salos", description: "Problemas com pagamentos via Multicaixa? Salos e fundos aqui.", articleCount: 9, icon: CreditCard },
-  { slug: "ks-premium", title: "Kwanza Stream Premium", description: "Queres uma experiência premium? Descobre tudo sobre o Premium!", articleCount: 14, icon: Crown },
-  { slug: "aplicacao-movel", title: "Aplicação Móvel", description: "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!", articleCount: 11, icon: MonitorSmartphone },
-  { slug: "ks-studio", title: "Kwanza Stream Studio", description: "À procura de informação sobre o Kwanza Stream Studio? Temos aqui!", articleCount: 6, icon: Video },
-  { slug: "eventos-torneios", title: "Eventos e Torneios", description: "Detalhes sobre promoções e torneios? Guardamos tudo aqui!", articleCount: 7, icon: Megaphone },
+  {
+    slug: "comecar",
+    title: "Começar",
+    description: "Novo na Kwanza Stream? Temos guias para te ajudar a começar.",
+    articleCount: 12,
+    icon: Pointer,
+  },
+  {
+    slug: "programa-afiliados",
+    title: "Programa de Afiliados",
+    description: "Informação sobre o Programa de Afiliados? Estás no lugar certo!",
+    articleCount: 8,
+    icon: Layers,
+  },
+  {
+    slug: "programa-parceiros",
+    title: "Programa de Parceiros",
+    description: "Questões sobre o Programa de Parceiros? Consulta estes artigos!",
+    articleCount: 15,
+    icon: ShieldCheck,
+  },
+  {
+    slug: "moderacao-seguranca",
+    title: "Moderação e Segurança",
+    description: "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui.",
+    articleCount: 10,
+    icon: Shield,
+  },
+  {
+    slug: "pagamentos-salos",
+    title: "Pagamentos e Salos",
+    description: "Problemas com pagamentos via Multicaixa? Salos e fundos aqui.",
+    articleCount: 9,
+    icon: CreditCard,
+  },
+  {
+    slug: "ks-premium",
+    title: "Kwanza Stream Premium",
+    description: "Queres uma experiência premium? Descobre tudo sobre o Premium!",
+    articleCount: 14,
+    icon: Crown,
+  },
+  {
+    slug: "aplicacao-movel",
+    title: "Aplicação Móvel",
+    description: "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!",
+    articleCount: 11,
+    icon: MonitorSmartphone,
+  },
+  {
+    slug: "ks-studio",
+    title: "Kwanza Stream Studio",
+    description: "À procura de informação sobre o Kwanza Stream Studio? Temos aqui!",
+    articleCount: 6,
+    icon: Video,
+  },
+  {
+    slug: "eventos-torneios",
+    title: "Eventos e Torneios",
+    description: "Detalhes sobre promoções e torneios? Guardamos tudo aqui!",
+    articleCount: 7,
+    icon: Megaphone,
+  },
 ];
 
 /* ─── Articles (20) ─── */
@@ -389,21 +451,24 @@ export const whatsNew: WhatsNew[] = [
     date: "MAI 2026",
     badge: "NOVO",
     title: "App Móvel Kwanza Stream 3.0",
-    description: "A nova app permite streaming em 1080p60 directamente do telemóvel, com vista de moderação integrada e definições de notificação melhoradas.",
+    description:
+      "A nova app permite streaming em 1080p60 directamente do telemóvel, com vista de moderação integrada e definições de notificação melhoradas.",
     slug: "app-movel-3",
   },
   {
     date: "ABR 2026",
     badge: "NOVO",
     title: "Clips Automáticos com IA",
-    description: "O novo motor de detecção por IA identifica automaticamente momentos de hype no teu stream e sugere clips para partilhares nas redes sociais.",
+    description:
+      "O novo motor de detecção por IA identifica automaticamente momentos de hype no teu stream e sugere clips para partilhares nas redes sociais.",
     slug: "clips-automaticos",
   },
   {
     date: "MAR 2026",
     badge: "ACTUALIZAÇÃO",
     title: "Painel de Análises Redesenhado",
-    description: "O painel de análises foi actualizado com retenção de visualizações, picos de audiência em simultâneo e tendências de receita numa vista limpa e única.",
+    description:
+      "O painel de análises foi actualizado com retenção de visualizações, picos de audiência em simultâneo e tendências de receita numa vista limpa e única.",
     slug: "analytics-dashboard",
   },
 ];
@@ -451,7 +516,6 @@ articles.forEach((a) => {
   a.id = meta.id;
   a.lastModified = meta.lastModified;
 });
-
 
 /* ─── Helpers ─── */
 export function getCategory(slug: string) {

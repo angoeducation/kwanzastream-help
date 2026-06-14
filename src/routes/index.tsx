@@ -7,7 +7,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Kwanza Stream Ajuda" },
-      { name: "description", content: "Pesquisa na Base de Conhecimento ou consulta tópicos específicos abaixo." },
+      {
+        name: "description",
+        content: "Pesquisa na Base de Conhecimento ou consulta tópicos específicos abaixo.",
+      },
     ],
   }),
   component: Index,

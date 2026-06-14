@@ -1,14 +1,14 @@
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 
 export function buildLoginUrl(): string {
   const state = nanoid(16);
-  sessionStorage.setItem('oauth_state', state);
+  sessionStorage.setItem("oauth_state", state);
 
   const params = new URLSearchParams({
-    client_id: import.meta.env.VITE_KS_CLIENT_ID || '',
+    client_id: import.meta.env.VITE_KS_CLIENT_ID || "",
     redirect_uri: `${import.meta.env.VITE_SITE_URL}/auth/callback`,
-    response_type: 'code',
-    scope: 'user:read:email',
+    response_type: "code",
+    scope: "user:read:email",
     state,
   });
 
@@ -17,17 +17,17 @@ export function buildLoginUrl(): string {
 
 export async function exchangeCodeForToken(code: string): Promise<string> {
   const response = await fetch(`${import.meta.env.VITE_KS_API_URL}/oauth2/token`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
-      grant_type: 'authorization_code',
+      grant_type: "authorization_code",
       code,
-      client_id: import.meta.env.VITE_KS_CLIENT_ID || '',
+      client_id: import.meta.env.VITE_KS_CLIENT_ID || "",
       redirect_uri: `${import.meta.env.VITE_SITE_URL}/auth/callback`,
     }),
   });
 
-  if (!response.ok) throw new Error('Falha na troca do código');
+  if (!response.ok) throw new Error("Falha na troca do código");
   const data = await response.json();
   return data.access_token;
 }
@@ -41,14 +41,14 @@ export async function fetchUser(token: string) {
 }
 
 export function saveToken(token: string): void {
-  localStorage.setItem('ks_help_token', token);
+  localStorage.setItem("ks_help_token", token);
 }
 
 export function getToken(): string | null {
-  return localStorage.getItem('ks_help_token');
+  return localStorage.getItem("ks_help_token");
 }
 
 export function clearToken(): void {
-  localStorage.removeItem('ks_help_token');
-  sessionStorage.removeItem('oauth_state');
+  localStorage.removeItem("ks_help_token");
+  sessionStorage.removeItem("oauth_state");
 }

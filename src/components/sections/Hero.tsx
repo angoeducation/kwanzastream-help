@@ -37,19 +37,16 @@ export function Hero() {
             setQuery(e.target.value);
             setShowDropdown(true);
           }}
-          onFocus={() => { if (query.trim()) setShowDropdown(true); }}
+          onFocus={() => {
+            if (query.trim()) setShowDropdown(true);
+          }}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
-        <button onClick={handleSearch}>
-          Procurar
-        </button>
+        <button onClick={handleSearch}>Procurar</button>
 
         {showDropdown && query.trim() && (
           <div className="search-dropdown">
-            <button
-              onClick={handleSearch}
-              className="search-dropdown-item"
-            >
+            <button onClick={handleSearch} className="search-dropdown-item">
               <Search className="search-dropdown-icon" />
               <span>
                 "<strong>{query}</strong>" na Kwanza Stream Ajuda

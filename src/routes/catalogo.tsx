@@ -6,7 +6,10 @@ export const Route = createFileRoute("/catalogo")({
   head: () => ({
     meta: [
       { title: "Catálogo de Tópicos — Kwanza Stream Ajuda" },
-      { name: "description", content: "Explora todos os tópicos de ajuda da Kwanza Stream organizados por categoria." },
+      {
+        name: "description",
+        content: "Explora todos os tópicos de ajuda da Kwanza Stream organizados por categoria.",
+      },
     ],
   }),
   component: CatalogoPage,
@@ -16,12 +19,7 @@ function CatalogoPage() {
   return (
     <div className="bg-ks-bg py-14">
       <div className="mx-auto max-w-[960px] px-6">
-        <Breadcrumb
-          items={[
-            { label: "Início", to: "/" },
-            { label: "Catálogo de Tópicos" },
-          ]}
-        />
+        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: "Catálogo de Tópicos" }]} />
 
         <div className="mt-6">
           <h1 className="text-[28px] font-semibold text-ks-text">Catálogo de Tópicos</h1>

@@ -76,10 +76,7 @@ export function Footer() {
                 <ul className="space-y-2 text-[13px] font-semibold text-[#adadb8]">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <Link
-                        to="/"
-                        className="hover:text-white transition-colors duration-150"
-                      >
+                      <Link to="/" className="hover:text-white transition-colors duration-150">
                         {link}
                       </Link>
                     </li>
@@ -95,7 +92,7 @@ export function Footer() {
       <div className="md:hidden px-6">
         {/* Language Selector matching image 5 */}
         <div className="flex items-center justify-end mb-6">
-          <select 
+          <select
             className="bg-[#1f1f23] text-white text-[13px] font-semibold px-3 py-2 rounded border border-transparent focus:border-[#9147ff] outline-none"
             defaultValue="pt-AO"
           >
@@ -110,7 +107,7 @@ export function Footer() {
               K
             </div>
           </Link>
-          
+
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-1 hover:text-white transition-colors border-none bg-transparent cursor-pointer"

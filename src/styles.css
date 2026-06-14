@@ -62,25 +62,25 @@
   --color-text: #0e0e0e;
   --color-surface: #ffffff;
 
-  --ks-bg: #F7F7F8;
-  --ks-surface: #FFFFFF;
-  --ks-surface-2: #F2F2F4;
-  --ks-border: #E4E4E7;
-  --ks-border-hover: #C4C4CC;
-  --ks-accent: #9146FF;
-  --ks-accent-hover: #772CE8;
-  --ks-accent-subtle: #F0E6FF;
-  --ks-text: #0E0E10;
-  --ks-text-secondary: #53535F;
-  --ks-muted: #ADADB8;
-  --ks-success: #00F5D4;
-  --ks-warning: #EB0400;
-  --ks-danger: #EB0400;
+  --ks-bg: #f7f7f8;
+  --ks-surface: #ffffff;
+  --ks-surface-2: #f2f2f4;
+  --ks-border: #e4e4e7;
+  --ks-border-hover: #c4c4cc;
+  --ks-accent: #9146ff;
+  --ks-accent-hover: #772ce8;
+  --ks-accent-subtle: #f0e6ff;
+  --ks-text: #0e0e10;
+  --ks-text-secondary: #53535f;
+  --ks-muted: #adadb8;
+  --ks-success: #00f5d4;
+  --ks-warning: #eb0400;
+  --ks-danger: #eb0400;
 
   --ks-footer-bg: #000000;
-  --ks-footer-text: #FFFFFF;
-  --ks-footer-muted: #ADADB8;
-  --ks-footer-divider: #1F1F23;
+  --ks-footer-text: #ffffff;
+  --ks-footer-muted: #adadb8;
+  --ks-footer-divider: #1f1f23;
 
   --radius: 8px;
   --background: var(--ks-bg);
@@ -97,7 +97,7 @@
   --muted-foreground: var(--ks-text-secondary);
   --accent: var(--ks-surface-2);
   --accent-foreground: var(--ks-text);
-  --destructive: #DC2626;
+  --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: var(--ks-border);
   --input: var(--ks-border);
@@ -129,7 +129,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
     color: var(--ks-text);
@@ -160,7 +163,7 @@
   max-width: 600px;
   margin: 0 auto 16px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .hero-section .search-container > input {
   flex: 1;
@@ -170,10 +173,10 @@
   outline: none;
   border-radius: 6px 0 0 6px;
   background: white;
-  color: #0E0E10;
+  color: #0e0e10;
 }
 .hero-section .search-container > button {
-  background: var(--ks-accent, #9146FF);
+  background: var(--ks-accent, #9146ff);
   color: white;
   border: none;
   padding: 14px 28px;
@@ -250,14 +253,18 @@
   padding: 48px 32px;
   text-align: center;
   cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.1s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.1s;
   text-decoration: none;
   color: inherit;
 }
 
 .category-card:hover {
   border-color: #ef539d !important;
-  box-shadow: inset 0 0 0 2px #ef539d, 0 0 0 2px #9146ff !important;
+  box-shadow:
+    inset 0 0 0 2px #ef539d,
+    0 0 0 2px #9146ff !important;
   transform: none;
 }
 
@@ -290,4 +297,3 @@
     grid-template-columns: 1fr;
   }
 }
-

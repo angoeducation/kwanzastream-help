@@ -30,7 +30,10 @@ export function WhatsNew() {
               <p className="mt-1.5 text-[13px] text-ks-text-secondary leading-[1.5] line-clamp-3">
                 {item.description}
               </p>
-              <a href="#" className="inline-block mt-3 text-[13px] font-medium text-ks-accent hover:underline">
+              <a
+                href="#"
+                className="inline-block mt-3 text-[13px] font-medium text-ks-accent hover:underline"
+              >
                 Ler mais →
               </a>
             </article>

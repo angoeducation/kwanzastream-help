@@ -4,7 +4,7 @@ import { BookOpen, Clock, ArrowRight } from "lucide-react";
 
 export function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
   // Find current article to check category
-  const currentArticle = articles.find(a => a.slug === excludeSlug);
+  const currentArticle = articles.find((a) => a.slug === excludeSlug);
   const categorySlug = currentArticle?.categorySlug;
 
   // Get articles in same category (excluding current)
@@ -13,7 +13,7 @@ export function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
   // Fallback to general articles if same-category articles are less than 3
   if (items.length < 3) {
     const fallback = articles.filter(
-      (a) => a.slug !== excludeSlug && !items.find(item => item.slug === a.slug)
+      (a) => a.slug !== excludeSlug && !items.find((item) => item.slug === a.slug),
     );
     items = [...items, ...fallback].slice(0, 3);
   } else {
