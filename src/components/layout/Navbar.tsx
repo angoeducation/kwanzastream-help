@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X, LogOut, User, Search } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [topicsOpen, setTopicsOpen] = useState(false);
@@ -66,7 +68,7 @@ export function Navbar() {
                 }}
                 className="flex items-center gap-1 text-sm font-semibold text-white bg-transparent border-none outline-none px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all cursor-pointer"
               >
-                Tópicos <ChevronDown className="w-3.5 h-3.5 mt-0.5" />
+                {t("nav.topics")} <ChevronDown className="w-3.5 h-3.5 mt-0.5" />
               </button>
  
               {topicsOpen && (
@@ -76,70 +78,70 @@ export function Navbar() {
                     params={{ slug: "comecar" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Começar
+                    {t("categories.comecar.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "programa-afiliados" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Programa de Afiliados
+                    {t("categories.programa-afiliados.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "programa-parceiros" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Programa de Parceiros
+                    {t("categories.programa-parceiros.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "moderacao-seguranca" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Moderação e Segurança
+                    {t("categories.moderacao-seguranca.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "pagamentos-salos" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Pagamentos e Salos
+                    {t("categories.pagamentos-salos.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "ks-premium" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Kwanza Stream Premium
+                    {t("categories.ks-premium.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "aplicacao-movel" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Aplicação Móvel
+                    {t("categories.aplicacao-movel.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "ks-studio" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Kwanza Stream Studio
+                    {t("categories.ks-studio.title")}
                   </Link>
                   <Link
                     to="/categoria/$slug"
                     params={{ slug: "eventos-torneios" }}
                     className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
                   >
-                    Eventos e Torneios
+                    {t("categories.eventos-torneios.title")}
                   </Link>
                   <div className="border-t border-gray-100 my-1" />
                   <Link
                     to="/catalogo"
                     className="block px-4 py-2 text-[#9146FF] font-semibold hover:bg-gray-50 transition-colors"
                   >
-                    Mais tópicos...
+                    {t("nav.more_topics")}
                   </Link>
                 </div>
               )}
@@ -149,13 +151,13 @@ export function Navbar() {
               to="/catalogo"
               className="text-sm font-semibold text-white no-underline px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all"
             >
-              Catálogo
+              {t("nav.catalog")}
             </Link>
             <Link
               to="/pesquisa"
               className="text-sm font-semibold text-white no-underline px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all"
             >
-              Pesquisar
+              {t("nav.search")}
             </Link>
           </nav>
         </div>
@@ -195,13 +197,13 @@ export function Navbar() {
                 </div>
               </button>
  
-              {profileOpen && (
+               {profileOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded shadow-lg border border-gray-150 py-1 text-[13px] z-50 text-[#0E0E10]">
                   <Link
                     to="/"
                     className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
                   >
-                    Página inicial
+                    {t("nav.home")}
                   </Link>
                   <a
                     href="https://kwanzastream.com"
@@ -209,20 +211,20 @@ export function Navbar() {
                     rel="noreferrer"
                     className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
                   >
-                    Voltar à Kwanza Stream
+                    {t("nav.back_to_ks")}
                   </a>
                   <Link
                     to="/contacto"
                     className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
                   >
-                    Contactar Suporte
+                    {t("nav.contact_support")}
                   </Link>
                   <div className="border-t border-gray-100 my-1" />
                   <button
                     onClick={auth.logout}
                     className="w-full text-left px-4 py-2 hover:bg-gray-50 text-[#0E0E10] border-none bg-transparent cursor-pointer font-semibold"
                   >
-                    Terminar sessão
+                    {t("nav.logout")}
                   </button>
                 </div>
               )}
@@ -234,12 +236,12 @@ export function Navbar() {
                 onClick={auth.login}
                 className="hidden md:block text-sm font-semibold text-white border-none bg-transparent cursor-pointer px-3 py-2 hover:bg-white/15 rounded transition-all"
               >
-                Entrar
+                {t("nav.login")}
               </button>
               <button
                 onClick={auth.login}
                 className="md:hidden w-7 h-7 rounded bg-[#ffffff]/10 hover:bg-[#ffffff]/20 border border-white/20 text-white flex items-center justify-center cursor-pointer"
-                aria-label="Entrar"
+                aria-label={t("nav.login")}
               >
                 <User className="w-5 h-5" />
               </button>
@@ -258,9 +260,9 @@ export function Navbar() {
           />
 
           {/* Sidebar Panel */}
-          <div className="fixed top-0 left-0 bottom-0 w-[280px] bg-white text-[#0E0E10] z-50 md:hidden shadow-lg p-5 flex flex-col animate-in slide-in-from-left duration-200">
+           <div className="fixed top-0 left-0 bottom-0 w-[280px] bg-white text-[#0E0E10] z-50 md:hidden shadow-lg p-5 flex flex-col animate-in slide-in-from-left duration-200">
             <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-              <span className="font-black text-[16px] tracking-wider text-[#9146FF]">Menu</span>
+              <span className="font-black text-[16px] tracking-wider text-[#9146FF]">{t("nav.menu")}</span>
               <button
                 onClick={() => setOpen(false)}
                 className="p-1 text-[#0E0E10] cursor-pointer border-none bg-transparent"
@@ -275,7 +277,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="py-3 border-b border-gray-100 hover:text-[#9146FF]"
               >
-                Início
+                {t("nav.home")}
               </Link>
 
               {/* Collapsible Tópicos accordion */}
@@ -284,7 +286,7 @@ export function Navbar() {
                   onClick={() => setMobileTopicsOpen((v) => !v)}
                   className="w-full flex items-center justify-between py-3 border-b border-gray-100 hover:text-[#9146FF] bg-transparent text-left font-bold text-[14px] border-none cursor-pointer"
                 >
-                  <span>Tópicos</span>
+                  <span>{t("nav.topics")}</span>
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       mobileTopicsOpen ? "rotate-180" : ""
@@ -300,7 +302,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Começar
+                      {t("categories.comecar.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -308,7 +310,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Programa de Afiliados
+                      {t("categories.programa-afiliados.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -316,7 +318,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Programa de Parceiros
+                      {t("categories.programa-parceiros.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -324,7 +326,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Moderação e Segurança
+                      {t("categories.moderacao-seguranca.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -332,7 +334,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Pagamentos e Salos
+                      {t("categories.pagamentos-salos.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -340,7 +342,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Kwanza Stream Premium
+                      {t("categories.ks-premium.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -348,7 +350,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Aplicação Móvel
+                      {t("categories.aplicacao-movel.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -356,7 +358,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Kwanza Stream Studio
+                      {t("categories.ks-studio.title")}
                     </Link>
                     <Link
                       to="/categoria/$slug"
@@ -364,7 +366,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 hover:text-[#9146FF]"
                     >
-                      Eventos e Torneios
+                      {t("categories.eventos-torneios.title")}
                     </Link>
                     <div className="border-t border-gray-150 my-1" />
                     <Link
@@ -372,7 +374,7 @@ export function Navbar() {
                       onClick={() => setOpen(false)}
                       className="py-2.5 text-[#9146FF] font-bold"
                     >
-                      Mais tópicos...
+                      {t("nav.more_topics")}
                     </Link>
                   </div>
                 )}
@@ -383,7 +385,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="py-3 border-b border-gray-100 hover:text-[#9146FF]"
               >
-                Catálogo de Tópicos
+                {t("nav.catalog")}
               </Link>
             </nav>
           </div>

@@ -27,7 +27,9 @@ export type Article = {
   readMinutes: number;
   body: string;
   id?: string;
-  lastModified?: string;
+  lastModified?: string; // ISO date string e.g. "2026-05-20"
+  views?: number;
+  popular?: boolean;
 };
 
 export type WhatsNew = {
@@ -482,39 +484,50 @@ export const popularSearches = [
   "KS Studio",
 ];
 
-// Let's create static IDs and modified dates for each article to ensure consistency and exact matches
-const articleMetadata: Record<string, { id: string; lastModified: string }> = {
-  "como-criar-conta": { id: "00001001", lastModified: "May 8, 2026, 11:52 AM" },
-  "configurar-primeiro-stream": { id: "00001002", lastModified: "Jun 10, 2026, 03:45 PM" },
-  "requisitos-sistema": { id: "00001003", lastModified: "Apr 15, 2026, 09:15 AM" },
-  "personalizar-perfil": { id: "00001004", lastModified: "May 30, 2026, 06:18 PM" },
-  "requisitos-afiliado": { id: "00002001", lastModified: "May 12, 2026, 02:20 PM" },
-  "configurar-monetizacao": { id: "00002002", lastModified: "May 20, 2026, 10:10 AM" },
-  "candidatura-parceiro": { id: "00003001", lastModified: "Jun 02, 2026, 04:30 PM" },
-  "beneficios-parceiro": { id: "00003002", lastModified: "Jun 05, 2026, 01:15 PM" },
-  "configurar-automod": { id: "00004001", lastModified: "May 08, 2026, 11:52 AM" },
-  "denunciar-utilizador": { id: "00004002", lastModified: "Apr 28, 2026, 12:01 PM" },
-  "seguranca-conta": { id: "00004003", lastModified: "Jun 11, 2026, 10:51 AM" },
-  "pagamento-multicaixa": { id: "00005001", lastModified: "May 28, 2026, 03:54 PM" },
-  "levantar-salos": { id: "00005002", lastModified: "Jun 01, 2026, 05:00 PM" },
-  "vantagens-premium": { id: "00006001", lastModified: "Jun 12, 2026, 08:30 AM" },
-  "cancelar-premium": { id: "00006002", lastModified: "Jun 13, 2026, 09:12 AM" },
-  "instalar-app-android": { id: "00007001", lastModified: "May 15, 2026, 11:40 AM" },
-  "resolver-problemas-app": { id: "00007002", lastModified: "May 18, 2026, 02:50 PM" },
-  "configurar-ks-studio": { id: "00008001", lastModified: "Jun 04, 2026, 10:05 AM" },
-  "cenas-transicoes": { id: "00008002", lastModified: "Jun 06, 2026, 11:30 AM" },
-  "participar-torneio": { id: "00009001", lastModified: "May 22, 2026, 04:15 PM" },
-  "criar-evento": { id: "00009002", lastModified: "May 25, 2026, 01:25 PM" },
+// Enrich articles with ID, ISO lastModified date, views count and popular flag
+const articleMetadata: Record<string, { id: string; lastModified: string; views: number }> = {
+  "como-criar-conta":           { id: "KS-000000001", lastModified: "2026-05-08", views: 2380 },
+  "configurar-primeiro-stream": { id: "KS-000000002", lastModified: "2026-06-10", views: 1940 },
+  "requisitos-sistema":         { id: "KS-000000003", lastModified: "2026-04-15", views: 1320 },
+  "personalizar-perfil":        { id: "KS-000000004", lastModified: "2026-05-30", views: 870 },
+  "requisitos-afiliado":        { id: "KS-000000005", lastModified: "2026-05-12", views: 1650 },
+  "configurar-monetizacao":     { id: "KS-000000006", lastModified: "2026-05-20", views: 1210 },
+  "candidatura-parceiro":       { id: "KS-000000007", lastModified: "2026-06-02", views: 980 },
+  "beneficios-parceiro":        { id: "KS-000000008", lastModified: "2026-06-05", views: 740 },
+  "configurar-automod":         { id: "KS-000000009", lastModified: "2026-05-08", views: 1105 },
+  "denunciar-utilizador":       { id: "KS-000000010", lastModified: "2026-04-28", views: 630 },
+  "seguranca-conta":            { id: "KS-000000011", lastModified: "2026-06-11", views: 920 },
+  "pagamento-multicaixa":       { id: "KS-000000012", lastModified: "2026-05-28", views: 2140 },
+  "levantar-salos":             { id: "KS-000000013", lastModified: "2026-06-01", views: 1480 },
+  "vantagens-premium":          { id: "KS-000000014", lastModified: "2026-06-12", views: 860 },
+  "cancelar-premium":           { id: "KS-000000015", lastModified: "2026-06-13", views: 510 },
+  "instalar-app-android":       { id: "KS-000000016", lastModified: "2026-05-15", views: 760 },
+  "resolver-problemas-app":     { id: "KS-000000017", lastModified: "2026-05-18", views: 430 },
+  "configurar-ks-studio":       { id: "KS-000000018", lastModified: "2026-06-04", views: 340 },
+  "cenas-transicoes":           { id: "KS-000000019", lastModified: "2026-06-06", views: 190 },
+  "participar-torneio":         { id: "KS-000000020", lastModified: "2026-05-22", views: 290 },
+  "criar-evento":               { id: "KS-000000021", lastModified: "2026-05-25", views: 150 },
 };
 
-// Enrich articles with ID and lastModified
+// Top 5 by views — marked as popular
+const TOP_POPULAR_SLUGS = [
+  "como-criar-conta",
+  "configurar-primeiro-stream",
+  "pagamento-multicaixa",
+  "requisitos-afiliado",
+  "levantar-salos",
+];
+
 articles.forEach((a) => {
   const meta = articleMetadata[a.slug] || {
-    id: `0000${Math.floor(1000 + Math.random() * 9000)}`,
-    lastModified: "Jun 13, 2026, 12:00 PM",
+    id: `KS-000000000`,
+    lastModified: "2026-06-13",
+    views: 40,
   };
   a.id = meta.id;
   a.lastModified = meta.lastModified;
+  a.views = meta.views;
+  a.popular = TOP_POPULAR_SLUGS.includes(a.slug);
 });
 
 /* ─── Helpers ─── */
@@ -536,4 +549,10 @@ export function searchArticles(query: string): Article[] {
   return articles.filter(
     (a) => a.title.toLowerCase().includes(q) || a.body.toLowerCase().includes(q),
   );
+}
+
+export function getPopularArticles(limit = 5): Article[] {
+  return [...articles]
+    .sort((a, b) => (b.views ?? 0) - (a.views ?? 0))
+    .slice(0, limit);
 }

@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "topics": "Tópicos",
+    "catalog": "Catálogo",
+    "search": "Pesquisar",
+    "login": "Entrar",
+    "more_topics": "Mais tópicos...",
+    "home": "Início",
+    "back_to_ks": "Voltar à Kwanza Stream",
+    "contact_support": "Contactar Suporte",
+    "logout": "Terminar sessão",
+    "menu": "Menu"
+  },
+  "home": {
+    "title": "Olá! Como podemos ajudar?",
+    "search_placeholder": "Pesquisa na Base de Conhecimentos...",
+    "search_button": "Pesquisar",
+    "search_hint": "Pesquisa na Base de Conhecimentos ou consulta tópicos específicos abaixo.",
+    "follow_x": "Segue-nos no X",
+    "search_in": "na Kwanza Stream Ajuda"
+  },
+  "categories": {
+    "comecar": {
+      "title": "Começar",
+      "description": "Novo na Kwanza Stream? Temos guias para te ajudar a começar."
+    },
+    "programa-afiliados": {
+      "title": "Programa de Afiliados",
+      "description": "Informação sobre o Programa de Afiliados? Estás no lugar certo!"
+    },
+    "programa-parceiros": {
+      "title": "Programa de Parceiros",
+      "description": "Questões sobre o Programa de Parceiros? Consulta estes artigos!"
+    },
+    "moderacao-seguranca": {
+      "title": "Moderação e Segurança",
+      "description": "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui."
+    },
+    "pagamentos-salos": {
+      "title": "Pagamentos e Salos",
+      "description": "Problemas com pagamentos via Multicaixa? Salos e fundos aqui."
+    },
+    "ks-premium": {
+      "title": "Kwanza Stream Premium",
+      "description": "Queres uma experiência premium? Descobre tudo sobre o Premium!"
+    },
+    "aplicacao-movel": {
+      "title": "Aplicação Móvel",
+      "description": "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!"
+    },
+    "ks-studio": {
+      "title": "Kwanza Stream Studio",
+      "description": "À procura de informação sobre o Kwanza Stream Studio? Temos aqui!"
+    },
+    "eventos-torneios": {
+      "title": "Eventos e Torneios",
+      "description": "Detalhes sobre promoções e torneios? Guardamos tudo aqui!"
+    }
+  },
+  "article": {
+    "views_one": "{{count}} visualização",
+    "views_other": "{{count}} visualizações",
+    "last_modified": "Última modificação",
+    "type_label": "Artigo",
+    "read_minutes": "{{count}} min de leitura",
+    "was_helpful": "Este artigo foi útil?",
+    "popular_articles": "Artigos Populares",
+    "related_categories": "Categorias Relacionadas",
+    "related_articles": "Artigos Relacionados",
+    "contact_support": "Contactar Suporte",
+    "not_found": "Artigo não encontrado",
+    "back_to_help": "Voltar à Central de Ajuda",
+    "error_loading": "Erro ao carregar artigo",
+    "updated_on": "Atualizado em"
+  },
+  "search": {
+    "page_title": "Pesquisa",
+    "tab_articles": "Artigos",
+    "tab_popular": "Artigos Populares",
+    "sorted_by": "Ordenado por Relevância",
+    "results_one": "{{count}} resultado",
+    "results_other": "{{count}} resultados",
+    "no_results_title": "Sem resultados para \"{{query}}\" em Artigos",
+    "no_results_hint": "Tenta usar palavras-chave diferentes ou consulta o",
+    "no_results_link": "catálogo de tópicos",
+    "popular_searches": "Pesquisas populares"
+  },
+  "footer": {
+    "tagline": "A Kwanza Stream é a plataforma de streaming feita para criadores angolanos.",
+    "contact_support": "Contatar Apoio",
+    "language_label": "Idioma",
+    "col_kwanzastream": "KWANZA STREAM",
+    "col_programas": "PROGRAMAS",
+    "col_recursos": "RECURSOS",
+    "col_legal": "LEGAL"
+  },
+  "breadcrumb": {
+    "home": "Início"
+  },
+  "catalog": {
+    "title": "Catálogo de Tópicos",
+    "subtitle": "Navega por todas as categorias de ajuda disponíveis.",
+    "articles": "artigos",
+    "not_found": "Categoria não encontrada",
+    "error_loading": "Erro ao carregar categoria",
+    "no_articles": "Ainda não há artigos nesta categoria.",
+    "contact_support": "Contactar Suporte",
+    "related_categories": "Categorias relacionadas"
+  },
+  "whatsapp": {
+    "aria_label": "Falar connosco no WhatsApp"
+  }
+}

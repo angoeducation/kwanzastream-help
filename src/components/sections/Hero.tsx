@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Hero() {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
@@ -27,11 +29,11 @@ export function Hero() {
 
   return (
     <section className="hero-section">
-      <h1>Olá! Podemos ajudar?</h1>
+      <h1>{t("home.title")}</h1>
       <div ref={containerRef} className="search-container relative z-50">
         <input
           type="text"
-          placeholder="Pesquisar..."
+          placeholder={t("home.search_placeholder")}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -42,20 +44,20 @@ export function Hero() {
           }}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
-        <button onClick={handleSearch}>Procurar</button>
+        <button onClick={handleSearch}>{t("home.search_button")}</button>
 
         {showDropdown && query.trim() && (
           <div className="search-dropdown">
             <button onClick={handleSearch} className="search-dropdown-item">
               <Search className="search-dropdown-icon" />
               <span>
-                "<strong>{query}</strong>" na Kwanza Stream Ajuda
+                "<strong>{query}</strong>" {t("home.search_in")}
               </span>
             </button>
           </div>
         )}
       </div>
-      <p>Pesquisa na Base de Conhecimentos ou consulta tópicos específicos abaixo.</p>
+      <p>{t("home.search_hint")}</p>
     </section>
   );
 }

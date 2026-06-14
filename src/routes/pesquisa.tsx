@@ -2,6 +2,9 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { searchArticles, getCategory, popularSearches } from "@/content/helpCenter";
 import { Breadcrumb } from "@/components/article/Breadcrumb";
+import { useTranslation } from "react-i18next";
+import { EmptySearchIllustration } from "@/components/search/EmptySearchIllustration";
+import { formatDate } from "@/lib/format";
 
 type SearchParams = { q?: string };
 
@@ -19,6 +22,7 @@ export const Route = createFileRoute("/pesquisa")({
 });
 
 function PesquisaPage() {
+  const { t, i18n } = useTranslation();
   const { q } = Route.useSearch();
   const navigate = useNavigate();
   const [input, setInput] = useState(q || "");
@@ -36,7 +40,7 @@ function PesquisaPage() {
   return (
     <div className="bg-[var(--color-surface)] min-h-screen" style={{ paddingTop: '32px', paddingBottom: '32px' }}>
       <div className="mx-auto max-w-[1100px]" style={{ padding: '0 24px' }}>
-        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: "Pesquisa" }]} />
+        <Breadcrumb items={[{ label: t("breadcrumb.home"), to: "/" }, { label: t("search.page_title") }]} />
 
         {/* Centered Search input */}
         <div className="mt-6 max-w-[600px] mx-auto">
@@ -46,14 +50,14 @@ function PesquisaPage() {
                 type="search"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Pesquisar..."
+                placeholder={t("home.search_placeholder")}
                 className="flex-1 bg-transparent outline-none px-4 text-base text-[#0E0E10] placeholder:text-[#ADADB8] min-w-0 border-none"
               />
               <button
                 type="submit"
                 className="px-6 bg-[#9146FF] text-white text-base font-bold hover:bg-[#772CE8] transition-colors duration-150 cursor-pointer border-none"
               >
-                Procurar
+                {t("home.search_button")}
               </button>
             </div>
           </form>
@@ -66,7 +70,7 @@ function PesquisaPage() {
             {/* Left Sidebar */}
             <aside className="w-full md:w-[200px] flex-none">
               <h2 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--color-text)', marginBottom: '12px' }}>
-                Resultados da pesquisa
+                {t("search.results_one", { count: results.length })}
               </h2>
               <div className="flex flex-col gap-1">
                 <button
@@ -74,7 +78,7 @@ function PesquisaPage() {
                   style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-accent)', background: 'rgba(145, 70, 255, 0.08)', padding: '8px 12px', borderRadius: '4px', borderLeft: '3px solid var(--color-accent)', border: 'none', borderLeftWidth: '3px', borderLeftStyle: 'solid', borderLeftColor: 'var(--color-accent)' }}
                 >
                   <div className="flex items-center justify-between">
-                    <span>Artigos</span>
+                    <span>{t("search.tab_articles")}</span>
                     <span className="bg-white text-[var(--color-accent)] text-xs font-bold px-2 py-0.5 rounded-full border border-[var(--color-accent)]">
                       {results.length}
                     </span>
@@ -86,7 +90,10 @@ function PesquisaPage() {
             {/* Right Content Area: Main Results */}
             <main className="flex-1 min-w-0">
               <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '24px' }}>
-                Mais de {results.length} resultado{results.length !== 1 ? "s" : ""} • Ordenado por Relevância
+                {results.length === 1
+                  ? t("search.results_one", { count: results.length })
+                  : t("search.results_other", { count: results.length })}{" "}
+                • {t("search.sorted_by")}
               </p>
 
               {results.length > 0 ? (
@@ -105,7 +112,8 @@ function PesquisaPage() {
                             {a.title}
                           </Link>
                           <p style={{ fontSize: '0.75rem', color: 'var(--color-text-meta)', marginBottom: '6px' }}>
-                            {a.id} • Última modificação {a.lastModified}
+                            {a.id} • {t("article.last_modified")}{" "}
+                            {formatDate(a.lastModified ?? "", i18n.language)}
                           </p>
                           <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
                             {cleanSnippet}
@@ -119,7 +127,7 @@ function PesquisaPage() {
                       to="/contacto"
                       className="inline-flex items-center gap-2 text-[18px] font-bold text-[#0E0E10] hover:text-[#9146FF] transition-colors cursor-pointer"
                     >
-                      <span>Contactar Suporte</span>
+                      <span>{t("article.contact_support")}</span>
                       <svg
                         className="w-4.5 h-4.5 mt-0.5"
                         fill="none"
@@ -137,14 +145,15 @@ function PesquisaPage() {
                   </div>
                 </>
               ) : (
-                <div className="text-center py-16 bg-white border border-[var(--color-border)] rounded-lg">
-                  <p className="text-base font-medium text-[var(--color-text)]">
-                    Nenhum resultado encontrado para "{q}"
+                <div className="flex flex-col items-center justify-center text-center py-16 bg-white border border-[var(--color-border)] rounded-lg px-6">
+                  <EmptySearchIllustration />
+                  <p className="text-[18px] font-bold text-[var(--color-text)] mt-6">
+                    {t("search.no_results_title", { query: q })}
                   </p>
-                  <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-                    Tenta usar palavras-chave diferentes ou consulta o{" "}
-                    <Link to="/catalogo" className="text-[var(--color-accent)] hover:underline">
-                      catálogo de tópicos
+                  <p className="mt-2 text-sm text-[var(--color-text-muted)] max-w-md">
+                    {t("search.no_results_hint")}{" "}
+                    <Link to="/catalogo" className="text-[var(--color-accent)] hover:underline font-semibold">
+                      {t("search.no_results_link")}
                     </Link>
                     .
                   </p>
@@ -156,7 +165,7 @@ function PesquisaPage() {
           /* Popular Searches */
           <div className="mt-12 max-w-[600px] mx-auto text-center">
             <p className="text-[13px] font-semibold text-ks-muted uppercase tracking-[0.06em] mb-4">
-              Pesquisas populares
+              {t("search.popular_searches")}
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {popularSearches.map((term) => (

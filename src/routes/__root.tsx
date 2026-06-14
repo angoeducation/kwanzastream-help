@@ -15,6 +15,8 @@ import { Navbar } from "../components/layout/Navbar";
 import { Footer } from "../components/layout/Footer";
 import { AuthProvider } from "../context/AuthContext";
 import { TawkChat } from "../components/TawkChat";
+import { WhatsAppFloatButton } from "../components/layout/WhatsAppFloatButton";
+import "../i18n/config";
 
 function NotFoundComponent() {
   return (
@@ -140,6 +142,7 @@ function RootComponent() {
           </main>
           <Footer />
           <TawkChat />
+          <WhatsAppFloatButton />
         </div>
       </AuthProvider>
     </QueryClientProvider>

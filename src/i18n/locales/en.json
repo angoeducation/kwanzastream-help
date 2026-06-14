@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "topics": "Topics",
+    "catalog": "Catalog",
+    "search": "Search",
+    "login": "Log In",
+    "more_topics": "More topics...",
+    "home": "Home",
+    "back_to_ks": "Back to Kwanza Stream",
+    "contact_support": "Contact Support",
+    "logout": "Sign out",
+    "menu": "Menu"
+  },
+  "home": {
+    "title": "Hi! How can we help?",
+    "search_placeholder": "Search the Knowledge Base...",
+    "search_button": "Search",
+    "search_hint": "Search the Knowledge Base or browse specific topics below.",
+    "follow_x": "Follow us on X",
+    "search_in": "in Kwanza Stream Help"
+  },
+  "categories": {
+    "comecar": {
+      "title": "Getting Started",
+      "description": "New to Kwanza Stream? We have guides to help you get started."
+    },
+    "programa-afiliados": {
+      "title": "Affiliate Program",
+      "description": "Looking for info about the Affiliate Program? You're in the right place!"
+    },
+    "programa-parceiros": {
+      "title": "Partner Program",
+      "description": "Questions about the Partner Program? Check out these articles!"
+    },
+    "moderacao-seguranca": {
+      "title": "Moderation & Safety",
+      "description": "Stay safe on Kwanza Stream. Moderation tools here."
+    },
+    "pagamentos-salos": {
+      "title": "Payments & Salos",
+      "description": "Issues with Multicaixa payments? Salos and funds here."
+    },
+    "ks-premium": {
+      "title": "Kwanza Stream Premium",
+      "description": "Want a premium experience? Discover everything about Premium!"
+    },
+    "aplicacao-movel": {
+      "title": "Mobile App",
+      "description": "Need help with the Kwanza Stream app? We have articles for every device!"
+    },
+    "ks-studio": {
+      "title": "Kwanza Stream Studio",
+      "description": "Looking for info about Kwanza Stream Studio? We've got it here!"
+    },
+    "eventos-torneios": {
+      "title": "Events & Tournaments",
+      "description": "Details about promotions and tournaments? We keep it all here!"
+    }
+  },
+  "article": {
+    "views_one": "{{count}} view",
+    "views_other": "{{count}} views",
+    "last_modified": "Last modified",
+    "type_label": "Article",
+    "read_minutes": "{{count}} min read",
+    "was_helpful": "Was this article helpful?",
+    "popular_articles": "Popular Articles",
+    "related_categories": "Related Categories",
+    "related_articles": "Related Articles",
+    "contact_support": "Contact Support",
+    "not_found": "Article not found",
+    "back_to_help": "Back to Help Center",
+    "error_loading": "Error loading article",
+    "updated_on": "Updated on"
+  },
+  "search": {
+    "page_title": "Search",
+    "tab_articles": "Articles",
+    "tab_popular": "Popular Articles",
+    "sorted_by": "Sorted by Relevance",
+    "results_one": "{{count}} result",
+    "results_other": "{{count}} results",
+    "no_results_title": "No results for \"{{query}}\" in Articles",
+    "no_results_hint": "Try different keywords or check out the",
+    "no_results_link": "topic catalog",
+    "popular_searches": "Popular searches"
+  },
+  "footer": {
+    "tagline": "Kwanza Stream is the streaming platform built for Angolan creators.",
+    "contact_support": "Contact Support",
+    "language_label": "Language",
+    "col_kwanzastream": "KWANZA STREAM",
+    "col_programas": "PROGRAMS",
+    "col_recursos": "RESOURCES",
+    "col_legal": "LEGAL"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "catalog": {
+    "title": "Topic Catalog",
+    "subtitle": "Browse all available help categories.",
+    "articles": "articles",
+    "not_found": "Category not found",
+    "error_loading": "Error loading category",
+    "no_articles": "No articles in this category yet.",
+    "contact_support": "Contact Support",
+    "related_categories": "Related categories"
+  },
+  "whatsapp": {
+    "aria_label": "Chat with us on WhatsApp"
+  }
+}

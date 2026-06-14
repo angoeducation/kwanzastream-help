@@ -1,8 +1,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getArticle, getCategory, getCategoryArticles } from "@/content/helpCenter";
+import { getArticle, getCategory, getCategoryArticles, articles } from "@/content/helpCenter";
 import { Breadcrumb } from "@/components/article/Breadcrumb";
 import { FeedbackWidget } from "@/components/article/FeedbackWidget";
 import { RelatedArticles } from "@/components/article/RelatedArticles";
+import { useTranslation } from "react-i18next";
+import { formatDate } from "@/lib/format";
+import { PopularArticles } from "@/components/article/PopularArticles";
 
 export const Route = createFileRoute("/artigo/$slug")({
   loader: ({ params }) => {
@@ -22,69 +25,79 @@ export const Route = createFileRoute("/artigo/$slug")({
         ]
       : [],
   }),
-  notFoundComponent: () => (
-    <div className="py-24 text-center px-4">
-      <h1 className="text-[28px] font-semibold mb-3 text-ks-text">Artigo não encontrado</h1>
-      <Link to="/" className="text-ks-accent hover:underline">
-        Voltar à Central de Ajuda
-      </Link>
-    </div>
-  ),
-  errorComponent: () => (
-    <div className="py-24 text-center px-4">
-      <h1 className="text-[28px] font-semibold text-ks-text">Erro ao carregar artigo</h1>
-    </div>
-  ),
+  notFoundComponent: () => {
+    const { t } = useTranslation();
+    return (
+      <div className="py-24 text-center px-4">
+        <h1 className="text-[28px] font-semibold mb-3 text-ks-text">{t("article.not_found")}</h1>
+        <Link to="/" className="text-ks-accent hover:underline">
+          {t("article.back_to_help")}
+        </Link>
+      </div>
+    );
+  },
+  errorComponent: () => {
+    const { t } = useTranslation();
+    return (
+      <div className="py-24 text-center px-4">
+        <h1 className="text-[28px] font-semibold text-ks-text">{t("article.error_loading")}</h1>
+      </div>
+    );
+  },
   component: ArticlePage,
 });
 
 function ArticlePage() {
+  const { t, i18n } = useTranslation();
   const { article, cat } = Route.useLoaderData();
-
-  // Get articles in same category (or other categories to make up 5) for sidebar
-  const categoryArticles = getCategoryArticles(article.categorySlug)
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 5);
-
-  if (categoryArticles.length < 5) {
-    const fallbacks = articles
-      .filter((a) => a.slug !== article.slug && !categoryArticles.some((x) => x.slug === a.slug))
-      .slice(0, 5 - categoryArticles.length);
-    categoryArticles.push(...fallbacks);
-  }
 
   return (
     <div className="bg-[var(--color-surface)]">
       <div className="max-w-[1100px] mx-auto px-6 py-8 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
         {/* Left Column: Main Content */}
         <main className="min-w-0">
-          <nav className="text-xs font-semibold text-[#6441A5] uppercase tracking-[0.05em] mb-5 flex items-center gap-1.5 flex-wrap">
+          <nav className="text-xs font-bold text-[#9146FF] uppercase tracking-[0.08em] mb-5 flex items-center gap-2 flex-wrap">
             <Link to="/" className="text-inherit no-underline hover:underline">
-              Início
+              {t("breadcrumb.home")}
             </Link>
             {cat && (
               <>
-                <span>&gt;</span>
+                <span className="text-[#adadb8] font-normal">&gt;</span>
                 <Link
                   to="/categoria/$slug"
                   params={{ slug: cat.slug }}
                   className="text-inherit no-underline hover:underline"
                 >
-                  {cat.title}
+                  {t(`categories.${cat.slug}.title`)}
                 </Link>
               </>
             )}
-            <span>&gt;</span>
-            <span className="text-inherit font-bold">{article.title}</span>
+            <span className="text-[#adadb8] font-normal">&gt;</span>
+            <span className="text-ks-text">{article.title}</span>
           </nav>
 
           <h1 className="text-3xl font-bold text-[var(--color-text)] leading-tight mb-6 tracking-tight">
             {article.title}
           </h1>
 
-          <p className="mt-3 text-xs text-[#999] mb-8">
-            Atualizado em 15 de Maio de 2026 · {article.readMinutes} min de leitura
-          </p>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ks-muted mb-8 font-medium">
+            <span>{article.id}</span>
+            <span>·</span>
+            <span className="uppercase tracking-wider text-[10px] font-bold text-[#9146FF]">{t("article.type_label")}</span>
+            <span>·</span>
+            <span>
+              {article.views === 1
+                ? t("article.views_one", { count: article.views })
+                : t("article.views_other", { count: article.views })}
+            </span>
+            <span>·</span>
+            <span>
+              {t("article.updated_on")}{" "}
+              {formatDate(article.lastModified ?? "", i18n.language)}
+            </span>
+            <span>·</span>
+            <span>{t("article.read_minutes", { count: article.readMinutes })}</span>
+          </div>
 
           <hr className="my-8 border-t border-[var(--color-border)]" />
 
@@ -139,7 +152,7 @@ function ArticlePage() {
               to="/contacto"
               className="inline-flex items-center gap-2 text-[18px] font-bold text-[#0E0E10] hover:text-[#9146FF] transition-colors cursor-pointer"
             >
-              <span>Contactar Suporte</span>
+              <span>{t("article.contact_support")}</span>
               <svg
                 className="w-4.5 h-4.5 mt-0.5"
                 fill="none"
@@ -160,21 +173,7 @@ function ArticlePage() {
         {/* Right Column: Sidebar */}
         <aside className="hidden lg:block w-[280px] flex-none">
           <div className="sticky top-[80px]">
-            <h3 className="text-sm font-bold uppercase tracking-[0.08em] text-[#999] mb-4">
-              Artigos Populares
-            </h3>
-            <nav className="flex flex-col gap-3">
-              {categoryArticles.map((art) => (
-                <Link
-                  key={art.slug}
-                  to="/artigo/$slug"
-                  params={{ slug: art.slug }}
-                  className="text-sm text-[#9146FF] leading-relaxed no-underline hover:underline block"
-                >
-                  {art.title}
-                </Link>
-              ))}
-            </nav>
+            <PopularArticles excludeSlug={article.slug} />
           </div>
         </aside>
       </div>
