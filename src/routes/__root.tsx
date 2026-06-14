@@ -141,6 +141,7 @@ function RootComponent() {
       const saved = localStorage.getItem("ks_help_language");
       if (saved && ["pt", "pt-BR", "en", "fr", "es"].includes(saved)) {
         i18n.changeLanguage(saved);
+        document.documentElement.lang = saved;
       } else {
         const navLang = navigator.language;
         const matched = ["pt", "pt-BR", "en", "fr", "es"].find(
@@ -148,6 +149,7 @@ function RootComponent() {
         );
         if (matched) {
           i18n.changeLanguage(matched);
+          document.documentElement.lang = matched;
         }
       }
     }

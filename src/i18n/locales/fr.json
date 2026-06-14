@@ -1,7 +1,7 @@
 {
   "nav": {
     "topics": "Sujets",
-    "catalog": "Catalogue de Tópicos",
+    "catalog": "Catalogue des sujets",
     "search": "Rechercher",
     "login": "Se connecter",
     "more_topics": "Plus de sujets...",
@@ -98,7 +98,7 @@
     "home": "Accueil"
   },
   "catalog": {
-    "title": "Catalogue de Tópicos",
+    "title": "Catalogue des sujets",
     "subtitle": "Parcourir toutes les catégories d'aide disponibles.",
     "articles": "articles",
     "not_found": "Catégorie non trouvée",

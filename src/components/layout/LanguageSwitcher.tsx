@@ -18,6 +18,7 @@ export function LanguageSwitcher() {
         const lang = e.target.value;
         i18n.changeLanguage(lang);
         localStorage.setItem("ks_help_language", lang);
+        document.documentElement.lang = lang;
       }}
       aria-label="Idioma / Language"
       style={{

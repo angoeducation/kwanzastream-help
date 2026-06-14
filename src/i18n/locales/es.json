@@ -1,7 +1,7 @@
 {
   "nav": {
     "topics": "Temas",
-    "catalog": "Catálogo de Tópicos",
+    "catalog": "Catálogo de temas",
     "search": "Buscar",
     "login": "Iniciar sesión",
     "more_topics": "Más temas...",
@@ -14,7 +14,7 @@
   "home": {
     "title": "¡Hola! ¿Podemos ayudarte?",
     "search_placeholder": "Buscar...",
-    "search_button": "Procurar",
+    "search_button": "Buscar",
     "search_hint": "Busca en la base de conocimientos o explora los temas específicos a continuación.",
     "follow_x": "Síguenos en X",
     "search_in": "en la Ayuda de Kwanza Stream"
@@ -98,7 +98,7 @@
     "home": "Inicio"
   },
   "catalog": {
-    "title": "Catálogo de Tópicos",
+    "title": "Catálogo de temas",
     "subtitle": "Explora todas las categorías de ayuda disponibles.",
     "articles": "artículos",
     "not_found": "Categoría no encontrada",
