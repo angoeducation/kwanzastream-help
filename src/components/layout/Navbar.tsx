@@ -48,14 +48,14 @@ export function Navbar() {
             <Menu className="w-5 h-5" />
           </button>
  
-          {/* Logo (hidden on mobile, shown on desktop) */}
-          <Link to="/" className="hidden md:flex items-center gap-2 hover:opacity-90">
-            <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-[#9146FF] text-[15px] select-none">
-              K
-            </div>
-            <span className="font-sans font-bold text-lg tracking-[-0.01em] text-white">
-              Kwanza Stream
-            </span>
+          {/* Logo isotipo (hidden on mobile, shown on desktop) */}
+          <Link to="/" className="hidden md:flex items-center hover:opacity-90">
+            <img
+              src="/brand/wordmark.png"
+              alt="Kwanza Stream"
+              className="h-[26px] w-auto select-none"
+              draggable={false}
+            />
           </Link>
  
           {/* Navigation Links (Desktop) */}

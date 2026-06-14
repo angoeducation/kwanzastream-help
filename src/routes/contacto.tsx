@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useAuth } from "@/context/AuthContext";
 import { Breadcrumb } from "@/components/article/Breadcrumb";
+import { useTranslation } from "react-i18next";
 import {
   CheckCircle,
   X,
   MessageSquare,
-  Mail,
-  AlertTriangle,
-  ShieldAlert,
   ArrowRight,
+  ShieldAlert,
 } from "lucide-react";
 
 export const Route = createFileRoute("/contacto")({
@@ -27,9 +26,11 @@ export const Route = createFileRoute("/contacto")({
 
 function ContactPage() {
   const auth = useAuth();
+  const { t } = useTranslation();
   const isLoggedIn = auth.status === "authenticated";
 
-  const [showChoiceModal, setShowChoiceModal] = useState(true);
+  // "choice" = show modal, "form" = show email form, "chat" = opened chat
+  const [view, setView] = useState<"choice" | "form" | "chat">("choice");
   const [recaptchaChecked, setRecaptchaChecked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -43,10 +44,19 @@ function ContactPage() {
   const openChat = () => {
     if (window.Tawk_API && typeof window.Tawk_API.maximize === "function") {
       window.Tawk_API.maximize();
-      setShowChoiceModal(false);
+      setView("chat");
     } else {
-      alert("O chat está a carregar... Por favor, tenta novamente em segundos.");
+      alert(t("contact.chat_loading"));
     }
+  };
+
+  const handleEmailClick = () => {
+    if (!isLoggedIn) {
+      // Not logged in — redirect to login first
+      auth.login();
+      return;
+    }
+    setView("form");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -63,85 +73,62 @@ function ContactPage() {
     );
   }
 
-  // Login Restriction Wall
-  if (!isLoggedIn) {
-    return (
-      <div className="bg-[#F7F7F8] py-14 min-h-[70vh] flex items-center">
-        <div className="mx-auto max-w-[480px] px-6 w-full text-center bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-red-500 rounded-full mb-6 border border-red-100">
-            <ShieldAlert className="w-7 h-7" />
-          </div>
-          <h1 className="text-[20px] font-black text-[#0E0E10]">Inicio de Sessão Necessário</h1>
-          <p className="text-[14px] text-[#53535F] mt-2 mb-6">
-            Apenas utilizadores autenticados podem enviar pedidos de suporte para a Kwanza Stream.
-          </p>
-          <button
-            onClick={auth.login}
-            className="w-full py-3 bg-[#9146FF] hover:bg-[#772CE8] text-white text-[14px] font-bold rounded shadow transition-colors cursor-pointer border-none"
-          >
-            Entrar com a Kwanza Stream
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="bg-[#F7F7F8] py-10 min-h-screen relative">
       {/* Help Choice Modal */}
-      {showChoiceModal && (
+      {view === "choice" && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4 animate-in fade-in duration-200">
           <div className="bg-white rounded-xl shadow-2xl max-w-[640px] w-full p-6 relative animate-in zoom-in-95 duration-150 text-center">
             <button
-              onClick={() => setShowChoiceModal(false)}
+              onClick={() => { isLoggedIn ? setView("form") : setView("form"); }}
               className="absolute right-4 top-4 p-1 text-gray-400 hover:text-gray-600 cursor-pointer border-none bg-transparent"
             >
               <X className="w-5 h-5" />
             </button>
 
             <h2 className="text-[22px] font-black text-[#0E0E10] mt-2">
-              Como gostarias de obter ajuda?
+              {t("contact.choice_title")}
             </h2>
             <p className="text-[14px] text-[#53535F] mt-1 mb-6">
-              Escolhe a opção mais adequada para ti.
+              {t("contact.choice_subtitle")}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Fala connosco card (Chat) */}
               <div className="bg-[#e6f4fe] border border-blue-100 rounded-lg p-5 flex flex-col items-center">
                 <img
-                  src="/radical_dog_gaming.png"
+                  src="/cao.png"
                   alt="Gamer Dog"
                   className="w-32 h-32 object-contain select-none pointer-events-none"
                 />
-                <h3 className="text-[16px] font-bold text-[#0E0E10] mt-3">Fala connosco</h3>
+                <h3 className="text-[16px] font-bold text-[#0E0E10] mt-3">{t("contact.chat_title")}</h3>
                 <p className="text-[12px] text-[#53535F] mt-1 mb-5">
-                  Obtém uma resposta em minutos
+                  {t("contact.chat_subtitle")}
                 </p>
                 <button
                   onClick={openChat}
                   className="w-full py-2.5 bg-[#9146FF] hover:bg-[#772CE8] text-white text-[13px] font-bold rounded shadow transition-colors cursor-pointer border-none mt-auto"
                 >
-                  Iniciar chat
+                  {t("contact.start_chat")}
                 </button>
               </div>
 
               {/* Envia-nos um e-mail card (Email Form) */}
               <div className="bg-[#fef6e7] border border-orange-100 rounded-lg p-5 flex flex-col items-center">
                 <img
-                  src="/ice_skull_gaming.png"
-                  alt="Gaming Ice Skull"
+                  src="/caveira.png"
+                  alt="Gaming Skull"
                   className="w-32 h-32 object-contain select-none pointer-events-none"
                 />
-                <h3 className="text-[16px] font-bold text-[#0E0E10] mt-3">Envia-nos um e-mail</h3>
+                <h3 className="text-[16px] font-bold text-[#0E0E10] mt-3">{t("contact.email_title")}</h3>
                 <p className="text-[12px] text-[#53535F] mt-1 mb-5">
-                  Responderemos no prazo de 24 horas
+                  {t("contact.email_subtitle")}
                 </p>
                 <button
-                  onClick={() => setShowChoiceModal(false)}
+                  onClick={handleEmailClick}
                   className="w-full py-2.5 bg-white hover:bg-orange-50/50 text-[#9146FF] border border-[#9146FF] text-[13px] font-bold rounded shadow transition-colors cursor-pointer mt-auto"
                 >
-                  Enviar e-mail
+                  {isLoggedIn ? t("contact.send_email") : t("contact.login_to_send")}
                 </button>
               </div>
             </div>
@@ -150,51 +137,68 @@ function ContactPage() {
       )}
 
       <div className="mx-auto max-w-[1000px] px-6">
-        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: "Contacta-nos" }]} />
+        <Breadcrumb items={[{ label: t("breadcrumb.home"), to: "/" }, { label: t("contact.breadcrumb") }]} />
 
         {submitted ? (
           <div className="mt-8 max-w-[600px] mx-auto bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-50 rounded-full border border-green-100 text-green-600 mb-6">
               <CheckCircle className="w-8 h-8" />
             </div>
-            <h2 className="text-[20px] font-bold text-[#0E0E10]">Mensagem enviada com sucesso!</h2>
+            <h2 className="text-[20px] font-bold text-[#0E0E10]">{t("contact.success_title")}</h2>
             <p className="text-[14px] text-[#53535F] mt-2 mb-8 max-w-md mx-auto">
-              Obrigado,{" "}
-              <span className="font-semibold text-[#0E0E10]">{auth.user?.display_name}</span>. O teu
-              ticket de suporte foi registado e enviado para a equipa da Kwanza Stream. Entraremos
-              em contacto para{" "}
-              <span className="font-semibold text-[#0E0E10]">{auth.user?.email}</span> dentro de 24
-              horas.
+              {t("contact.success_message", {
+                name: auth.user?.display_name,
+                email: auth.user?.email,
+              })}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Link
                 to="/"
                 className="px-6 py-3 bg-[#9146FF] hover:bg-[#772CE8] text-white rounded text-[13px] font-bold transition-all shadow-sm"
               >
-                Voltar ao Início
+                {t("contact.back_home")}
               </Link>
               <Link
                 to="/catalogo"
                 className="px-6 py-3 bg-white hover:bg-gray-50 text-[#0E0E10] border border-gray-200 rounded text-[13px] font-bold transition-all shadow-sm"
               >
-                Ver Tópicos
+                {t("contact.view_topics")}
               </Link>
+            </div>
+          </div>
+        ) : view === "form" && !isLoggedIn ? (
+          /* Login Restriction Wall — for email form when not logged in */
+          <div className="mt-8 flex items-center justify-center min-h-[50vh]">
+            <div className="max-w-[480px] w-full text-center bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 text-red-500 rounded-full mb-6 border border-red-100">
+                <ShieldAlert className="w-7 h-7" />
+              </div>
+              <h1 className="text-[20px] font-black text-[#0E0E10]">{t("contact.login_required_title")}</h1>
+              <p className="text-[14px] text-[#53535F] mt-2 mb-6">
+                {t("contact.login_required_message")}
+              </p>
+              <button
+                onClick={auth.login}
+                className="w-full py-3 bg-[#9146FF] hover:bg-[#772CE8] text-white text-[14px] font-bold rounded shadow transition-colors cursor-pointer border-none"
+              >
+                {t("contact.login_button")}
+              </button>
             </div>
           </div>
         ) : (
           <div className="mt-8 flex flex-col lg:flex-row gap-8 items-start">
             {/* Left side: Main form */}
             <main className="flex-1 bg-white border border-gray-200 rounded-xl p-6 md:p-8 shadow-sm w-full">
-              <h1 className="text-[24px] font-black text-[#0E0E10] mb-2">Contacta-nos</h1>
+              <h1 className="text-[24px] font-black text-[#0E0E10] mb-2">{t("contact.form_title")}</h1>
               <p className="text-[13px] text-[#53535F] mb-6 border-b border-gray-100 pb-4">
-                Preenche os campos abaixo para abrir um pedido de suporte oficial.
+                {t("contact.form_subtitle")}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Username */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Seu nome
+                    {t("contact.field_name")}
                   </label>
                   <input
                     type="text"
@@ -207,7 +211,7 @@ function ContactPage() {
                 {/* Account Login */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Seu nome de usuário da Kwanza Stream
+                    {t("contact.field_username")}
                   </label>
                   <input
                     type="text"
@@ -220,7 +224,7 @@ function ContactPage() {
                 {/* Email Address */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Endereço de e-mail para enviar a resposta
+                    {t("contact.field_email")}
                   </label>
                   <input
                     type="text"
@@ -233,7 +237,7 @@ function ContactPage() {
                 {/* Phone number */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Número de telefone associado à tua conta Kwanza Stream
+                    {t("contact.field_phone")}
                   </label>
                   <div className="flex gap-2">
                     <select
@@ -252,7 +256,7 @@ function ContactPage() {
                       type="tel"
                       value={formData.phoneNum}
                       onChange={(e) => setFormData((v) => ({ ...v, phoneNum: e.target.value }))}
-                      placeholder="Ex: 923000000"
+                      placeholder={t("contact.phone_placeholder")}
                       required
                       className="flex-1 text-[13px] bg-white border border-gray-200 rounded px-3 py-2 outline-none focus:border-[#9146FF]"
                     />
@@ -262,38 +266,34 @@ function ContactPage() {
                 {/* Category Dropdown */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Categoria
+                    {t("contact.field_category")}
                   </label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData((v) => ({ ...v, category: e.target.value }))}
                     className="w-full text-[13px] bg-white border border-gray-200 rounded px-3 py-2 outline-none focus:border-[#9146FF]"
                   >
-                    <option value="Problemas de Conta/Login">Problemas de Conta/Login</option>
-                    <option value="Geral">Geral / Dúvidas</option>
-                    <option value="Legal">Legal & Termos</option>
-                    <option value="Contas Monetizadas">
-                      Contas Monetizadas (Afiliados/Parceiros)
-                    </option>
-                    <option value="Privacidade">Privacidade & RGPD</option>
-                    <option value="Compras">Compras & Subs (Multicaixa)</option>
-                    <option value="Enviar Feedback">Enviar Feedback / Ideias</option>
-                    <option value="Suspensões e Avisos">Suspensões e Avisos de Segurança</option>
-                    <option value="Aplicações Kwanza Stream">
-                      Aplicações Kwanza Stream (Telemóvel/Studio)
-                    </option>
+                    <option value="Problemas de Conta/Login">{t("contact.cat_account")}</option>
+                    <option value="Geral">{t("contact.cat_general")}</option>
+                    <option value="Legal">{t("contact.cat_legal")}</option>
+                    <option value="Contas Monetizadas">{t("contact.cat_monetized")}</option>
+                    <option value="Privacidade">{t("contact.cat_privacy")}</option>
+                    <option value="Compras">{t("contact.cat_purchases")}</option>
+                    <option value="Enviar Feedback">{t("contact.cat_feedback")}</option>
+                    <option value="Suspensões e Avisos">{t("contact.cat_suspensions")}</option>
+                    <option value="Aplicações Kwanza Stream">{t("contact.cat_apps")}</option>
                   </select>
                 </div>
 
                 {/* Description */}
                 <div>
                   <label className="block text-[11px] font-bold uppercase tracking-wider text-[#53535F] mb-1.5">
-                    Descrição do problema
+                    {t("contact.field_description")}
                   </label>
                   <textarea
                     value={formData.description}
                     onChange={(e) => setFormData((v) => ({ ...v, description: e.target.value }))}
-                    placeholder="Explica o teu problema detalhadamente..."
+                    placeholder={t("contact.description_placeholder")}
                     required
                     rows={5}
                     className="w-full text-[13px] bg-white border border-gray-200 rounded p-3 outline-none focus:border-[#9146FF] resize-none"
@@ -314,9 +314,11 @@ function ContactPage() {
                     </span>
                   </label>
                   <div className="flex flex-col items-center select-none opacity-60">
-                    <div className="w-6 h-6 bg-white border border-gray-300 rounded flex items-center justify-center font-black text-[#9146FF] text-[10px]">
-                      K
-                    </div>
+                    <img
+                      src="/brand/wordmark.png"
+                      alt="KS"
+                      className="w-6 h-6 object-contain"
+                    />
                     <span className="text-[8px] text-gray-500 mt-0.5">reCAPTCHA</span>
                   </div>
                 </div>
@@ -331,7 +333,7 @@ function ContactPage() {
                       : "bg-[#adadb8] cursor-not-allowed opacity-60"
                   }`}
                 >
-                  Enviar
+                  {t("contact.submit")}
                 </button>
               </form>
             </main>
@@ -341,30 +343,29 @@ function ContactPage() {
               {/* Chat assistance promo card */}
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm text-center">
                 <img
-                  src="/radical_dog_gaming.png"
+                  src="/cao.png"
                   alt="Gamer Dog"
                   className="w-24 h-24 mx-auto object-contain select-none pointer-events-none"
                 />
                 <h2 className="text-[16px] font-black text-[#0E0E10] mt-3">
-                  Obtenha ajuda agora, evite a espera
+                  {t("contact.sidebar_chat_title")}
                 </h2>
                 <p className="text-[12px] text-[#53535F] mt-1.5 mb-5 leading-relaxed">
-                  Converse com o nosso assistente virtual para obter uma resposta mais rápida.
-                  Disponível agora.
+                  {t("contact.sidebar_chat_subtitle")}
                 </p>
                 <button
                   onClick={openChat}
                   className="w-full py-2.5 bg-[#9146FF] hover:bg-[#772CE8] text-white text-[13px] font-bold rounded shadow transition-colors cursor-pointer border-none flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Iniciar um chat</span>
+                  <span>{t("contact.sidebar_start_chat")}</span>
                 </button>
               </div>
 
               {/* Social Follow-up links */}
               <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
                 <h3 className="text-[12px] font-bold uppercase tracking-wider text-[#53535F] mb-3">
-                  Outros Recursos
+                  {t("contact.other_resources")}
                 </h3>
                 <a
                   href="https://x.com/KwanzaStream"
@@ -376,7 +377,7 @@ function ContactPage() {
                     <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
-                    <span>Segue-nos no X</span>
+                    <span>{t("home.follow_x")}</span>
                   </span>
                   <ArrowRight className="w-4 h-4" />
                 </a>

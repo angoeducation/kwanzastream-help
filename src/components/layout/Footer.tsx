@@ -66,13 +66,13 @@ export function Footer() {
       <div className="hidden md:grid mx-auto max-w-[1200px] px-6 grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
         {/* Left Side: White Logo Block + Language Selector */}
         <div className="flex flex-col gap-5 items-start">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90">
-            <div className="w-[30px] h-[30px] bg-white rounded flex items-center justify-center font-black text-black text-[17px] select-none">
-              K
-            </div>
-            <span className="font-['Rajdhani'] font-bold text-[22px] tracking-wider text-white">
-              Kwanza Stream
-            </span>
+          <Link to="/" className="flex items-center hover:opacity-90">
+            <img
+              src="/brand/wordmark.png"
+              alt="Kwanza Stream"
+              className="h-[30px] w-auto select-none"
+              draggable={false}
+            />
           </Link>
           <p className="text-[12px] leading-relaxed text-[#adadb8]/70">
             {t("footer.tagline")}
@@ -128,10 +128,13 @@ export function Footer() {
         </div>
 
         <div className="flex items-center justify-between py-4 border-b border-[#1f1f23]">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90">
-            <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-black text-[15px] select-none">
-              K
-            </div>
+          <Link to="/" className="flex items-center hover:opacity-90">
+            <img
+              src="/brand/wordmark.png"
+              alt="Kwanza Stream"
+              className="h-[24px] w-auto select-none"
+              draggable={false}
+            />
           </Link>
 
           <button
