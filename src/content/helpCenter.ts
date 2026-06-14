@@ -1,7 +1,7 @@
 import {
   Pointer,
   Layers,
-  ShieldCheck,
+  BadgeCheck,
   Shield,
   CreditCard,
   Crown,
@@ -44,7 +44,7 @@ export type WhatsNew = {
 export const categories: Category[] = [
   {
     slug: "comecar",
-    title: "Começar",
+    title: "Introdução",
     description: "Novo na Kwanza Stream? Temos guias para te ajudar a começar.",
     articleCount: 12,
     icon: Pointer,
@@ -61,7 +61,7 @@ export const categories: Category[] = [
     title: "Programa de Parceiros",
     description: "Questões sobre o Programa de Parceiros? Consulta estes artigos!",
     articleCount: 15,
-    icon: ShieldCheck,
+    icon: BadgeCheck,
   },
   {
     slug: "moderacao-seguranca",
@@ -72,21 +72,21 @@ export const categories: Category[] = [
   },
   {
     slug: "pagamentos-salos",
-    title: "Pagamentos e Salos",
-    description: "Problemas com pagamentos via Multicaixa? Salos e fundos aqui.",
+    title: "Apoio na Compra",
+    description: "Dúvidas sobre compras e pagamentos? Encontra respostas aqui.",
     articleCount: 9,
     icon: CreditCard,
   },
   {
     slug: "ks-premium",
-    title: "Kwanza Stream Premium",
-    description: "Queres uma experiência premium? Descobre tudo sobre o Premium!",
+    title: "Prime Gaming e Turbo",
+    description: "Queres saber mais sobre os benefícios do Prime Gaming e do Turbo? Vê estes artigos.",
     articleCount: 14,
     icon: Crown,
   },
   {
     slug: "aplicacao-movel",
-    title: "Aplicação Móvel",
+    title: "Aplicações Kwanza Stream",
     description: "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!",
     articleCount: 11,
     icon: MonitorSmartphone,
@@ -100,7 +100,7 @@ export const categories: Category[] = [
   },
   {
     slug: "eventos-torneios",
-    title: "Eventos e Torneios",
+    title: "Eventos Especiais da Kwanza Stream",
     description: "Detalhes sobre promoções e torneios? Guardamos tudo aqui!",
     articleCount: 7,
     icon: Megaphone,

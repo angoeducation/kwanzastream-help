@@ -109,7 +109,7 @@ function CategoryPage() {
                           <span className="w-1.5 h-1.5 rounded-full bg-ks-accent mr-3 mt-2 flex-none" />
                           <div className="flex flex-col min-w-0">
                             <p className="text-[15px] font-semibold text-ks-text group-hover:text-ks-accent transition-colors duration-150">
-                              {a.title}
+                              {t(`articles.${a.slug}.title`, a.title)}
                             </p>
                             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ks-muted mt-1 font-medium">
                               <span>{a.id}</span>

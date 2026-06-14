@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X, LogOut, User, Search } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { useTranslation } from "react-i18next";
+import { categories } from "@/content/helpCenter";
 
 export function Navbar() {
   const { t } = useTranslation();
@@ -73,69 +74,16 @@ export function Navbar() {
  
               {topicsOpen && (
                 <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-1.5 text-[13px] z-50">
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "comecar" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.comecar.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "programa-afiliados" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.programa-afiliados.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "programa-parceiros" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.programa-parceiros.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "moderacao-seguranca" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.moderacao-seguranca.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "pagamentos-salos" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.pagamentos-salos.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "ks-premium" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.ks-premium.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "aplicacao-movel" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.aplicacao-movel.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "ks-studio" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.ks-studio.title")}
-                  </Link>
-                  <Link
-                    to="/categoria/$slug"
-                    params={{ slug: "eventos-torneios" }}
-                    className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
-                  >
-                    {t("categories.eventos-torneios.title")}
-                  </Link>
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat.slug}
+                      to="/categoria/$slug"
+                      params={{ slug: cat.slug }}
+                      className="block px-4 py-2 text-[#0E0E10] hover:text-[#9146FF] hover:bg-gray-50 transition-colors"
+                    >
+                      {t(`categories.${cat.slug}.title`)}
+                    </Link>
+                  ))}
                   <div className="border-t border-gray-100 my-1" />
                   <Link
                     to="/catalogo"
@@ -296,78 +244,17 @@ export function Navbar() {
 
                 {mobileTopicsOpen && (
                   <div className="pl-4 bg-gray-50 flex flex-col py-1 text-[13px] font-semibold animate-in slide-in-from-top duration-150">
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "comecar" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.comecar.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "programa-afiliados" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.programa-afiliados.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "programa-parceiros" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.programa-parceiros.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "moderacao-seguranca" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.moderacao-seguranca.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "pagamentos-salos" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.pagamentos-salos.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "ks-premium" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.ks-premium.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "aplicacao-movel" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.aplicacao-movel.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "ks-studio" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.ks-studio.title")}
-                    </Link>
-                    <Link
-                      to="/categoria/$slug"
-                      params={{ slug: "eventos-torneios" }}
-                      onClick={() => setOpen(false)}
-                      className="py-2.5 hover:text-[#9146FF]"
-                    >
-                      {t("categories.eventos-torneios.title")}
-                    </Link>
+                    {categories.map((cat) => (
+                      <Link
+                        key={cat.slug}
+                        to="/categoria/$slug"
+                        params={{ slug: cat.slug }}
+                        onClick={() => setOpen(false)}
+                        className="py-2.5 hover:text-[#9146FF]"
+                      >
+                        {t(`categories.${cat.slug}.title`)}
+                      </Link>
+                    ))}
                     <div className="border-t border-gray-150 my-1" />
                     <Link
                       to="/catalogo"

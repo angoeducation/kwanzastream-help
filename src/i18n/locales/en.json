@@ -1,7 +1,7 @@
 {
   "nav": {
     "topics": "Topics",
-    "catalog": "Catalog",
+    "catalog": "Topic Catalog",
     "search": "Search",
     "login": "Log In",
     "more_topics": "More topics...",
@@ -12,8 +12,8 @@
     "menu": "Menu"
   },
   "home": {
-    "title": "Hi! How can we help?",
-    "search_placeholder": "Search the Knowledge Base...",
+    "title": "Hi! Can we help?",
+    "search_placeholder": "Search...",
     "search_button": "Search",
     "search_hint": "Search the Knowledge Base or browse specific topics below.",
     "follow_x": "Follow us on X",
@@ -21,7 +21,7 @@
   },
   "categories": {
     "comecar": {
-      "title": "Getting Started",
+      "title": "Introduction",
       "description": "New to Kwanza Stream? We have guides to help you get started."
     },
     "programa-afiliados": {
@@ -37,15 +37,15 @@
       "description": "Stay safe on Kwanza Stream. Moderation tools here."
     },
     "pagamentos-salos": {
-      "title": "Payments & Salos",
-      "description": "Issues with Multicaixa payments? Salos and funds here."
+      "title": "Purchase Support",
+      "description": "Questions about purchases and payments? Find answers here."
     },
     "ks-premium": {
-      "title": "Kwanza Stream Premium",
-      "description": "Want a premium experience? Discover everything about Premium!"
+      "title": "Prime Gaming & Turbo",
+      "description": "Want to know more about the benefits of Prime Gaming and Turbo? See these articles."
     },
     "aplicacao-movel": {
-      "title": "Mobile App",
+      "title": "Kwanza Stream Applications",
       "description": "Need help with the Kwanza Stream app? We have articles for every device!"
     },
     "ks-studio": {
@@ -53,7 +53,7 @@
       "description": "Looking for info about Kwanza Stream Studio? We've got it here!"
     },
     "eventos-torneios": {
-      "title": "Events & Tournaments",
+      "title": "Kwanza Stream Special Events",
       "description": "Details about promotions and tournaments? We keep it all here!"
     }
   },

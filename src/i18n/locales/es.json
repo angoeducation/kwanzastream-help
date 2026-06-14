@@ -1,7 +1,7 @@
 {
   "nav": {
     "topics": "Temas",
-    "catalog": "Catálogo",
+    "catalog": "Catálogo de Tópicos",
     "search": "Buscar",
     "login": "Iniciar sesión",
     "more_topics": "Más temas...",
@@ -12,16 +12,16 @@
     "menu": "Menú"
   },
   "home": {
-    "title": "¡Hola! ¿Cómo podemos ayudarte?",
-    "search_placeholder": "Buscar en la base de conocimientos...",
-    "search_button": "Buscar",
+    "title": "¡Hola! ¿Podemos ayudarte?",
+    "search_placeholder": "Buscar...",
+    "search_button": "Procurar",
     "search_hint": "Busca en la base de conocimientos o explora los temas específicos a continuación.",
     "follow_x": "Síguenos en X",
     "search_in": "en la Ayuda de Kwanza Stream"
   },
   "categories": {
     "comecar": {
-      "title": "Primeros pasos",
+      "title": "Introducción",
       "description": "¿Eres nuevo en Kwanza Stream? Tenemos guías para ayudarte a empezar."
     },
     "programa-afiliados": {
@@ -37,15 +37,15 @@
       "description": "Mantente seguro en Kwanza Stream. Herramientas de moderación aquí."
     },
     "pagamentos-salos": {
-      "title": "Pagos y Salos",
-      "description": "¿Problemas con los pagos de Multicaixa? Salos y fondos aquí."
+      "title": "Soporte de Compras",
+      "description": "¿Preguntas sobre compras y pagos? Encuentra respuestas aquí."
     },
     "ks-premium": {
-      "title": "Kwanza Stream Premium",
-      "description": "¿Quieres una experiencia premium? ¡Descubre todo sobre Premium!"
+      "title": "Prime Gaming y Turbo",
+      "description": "¿Quieres saber más sobre los beneficios de Prime Gaming y Turbo? Consulta estos artículos."
     },
     "aplicacao-movel": {
-      "title": "Aplicación Móvil",
+      "title": "Aplicaciones de Kwanza Stream",
       "description": "¿Necesitas ayuda con la aplicación de Kwanza Stream? ¡Tenemos artículos para cada dispositivo!"
     },
     "ks-studio": {
@@ -53,7 +53,7 @@
       "description": "¿Buscas información sobre Kwanza Stream Studio? ¡La tenemos aquí!"
     },
     "eventos-torneios": {
-      "title": "Eventos y Torneos",
+      "title": "Eventos Especiales de Kwanza Stream",
       "description": "¿Detalles sobre promociones y torneos? ¡Lo guardamos todo aquí!"
     }
   },
@@ -98,7 +98,7 @@
     "home": "Inicio"
   },
   "catalog": {
-    "title": "Catálogo de temas",
+    "title": "Catálogo de Tópicos",
     "subtitle": "Explora todas las categorías de ayuda disponibles.",
     "articles": "artículos",
     "not_found": "Categoría no encontrada",

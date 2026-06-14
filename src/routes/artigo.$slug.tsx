@@ -73,11 +73,11 @@ function ArticlePage() {
               </>
             )}
             <span className="text-[#adadb8] font-normal">&gt;</span>
-            <span className="text-ks-text">{article.title}</span>
+            <span className="text-ks-text">{t(`articles.${article.slug}.title`, article.title)}</span>
           </nav>
 
           <h1 className="text-3xl font-bold text-[var(--color-text)] leading-tight mb-6 tracking-tight">
-            {article.title}
+            {t(`articles.${article.slug}.title`, article.title)}
           </h1>
 
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ks-muted mb-8 font-medium">
@@ -102,7 +102,7 @@ function ArticlePage() {
           <hr className="my-8 border-t border-[var(--color-border)]" />
 
           {/* Render actual article body HTML */}
-          <div className="article-body" dangerouslySetInnerHTML={{ __html: article.body }} />
+          <div className="article-body" dangerouslySetInnerHTML={{ __html: t(`articles.${article.slug}.body`, article.body) }} />
 
           <style>{`
             .article-body p {

@@ -42,7 +42,7 @@ export function PopularArticles({ excludeSlug }: { excludeSlug?: string }) {
               style={{ color: '#9147FF', fontSize: 14, textDecoration: 'none' }}
               className="hover:underline"
             >
-              {article.title}
+              {t(`articles.${article.slug}.title`, article.title)}
             </Link>
           </li>
         ))}

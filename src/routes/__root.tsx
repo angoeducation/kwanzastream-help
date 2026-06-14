@@ -8,7 +8,8 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, I18nextProvider } from "react-i18next";
+import i18n from "../i18n/config";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -135,19 +136,38 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("ks_help_language");
+      if (saved && ["pt", "pt-BR", "en", "fr", "es"].includes(saved)) {
+        i18n.changeLanguage(saved);
+      } else {
+        const navLang = navigator.language;
+        const matched = ["pt", "pt-BR", "en", "fr", "es"].find(
+          (l) => navLang.startsWith(l)
+        );
+        if (matched) {
+          i18n.changeLanguage(matched);
+        }
+      }
+    }
+  }, []);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <div className="min-h-screen flex flex-col bg-ks-bg text-ks-text">
-          <Navbar />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <Footer />
-          <TawkChat />
-          <WhatsAppFloatButton />
-        </div>
-      </AuthProvider>
-    </QueryClientProvider>
+    <I18nextProvider i18n={i18n}>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <div className="min-h-screen flex flex-col bg-ks-bg text-ks-text">
+            <Navbar />
+            <main className="flex-1">
+              <Outlet />
+            </main>
+            <Footer />
+            <TawkChat />
+            <WhatsAppFloatButton />
+          </div>
+        </AuthProvider>
+      </QueryClientProvider>
+    </I18nextProvider>
   );
 }

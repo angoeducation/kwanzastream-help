@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { articles, getCategory } from "@/content/helpCenter";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
+  const { t } = useTranslation();
   // Find current article to check category
   const currentArticle = articles.find((a) => a.slug === excludeSlug);
   const categorySlug = currentArticle?.categorySlug;
@@ -24,7 +26,7 @@ export function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
     <section className="mt-12 border-t border-ks-border pt-8">
       <div className="flex items-center gap-2 mb-6">
         <BookOpen className="w-5 h-5 text-ks-accent" />
-        <h3 className="text-[16px] font-bold text-ks-text">Artigos Recomendados</h3>
+        <h3 className="text-[16px] font-bold text-ks-text">{t("article.related_articles")}</h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {items.map((a) => {
@@ -38,19 +40,19 @@ export function RelatedArticles({ excludeSlug }: { excludeSlug: string }) {
             >
               <div>
                 <span className="inline-block text-[11px] font-bold text-ks-accent bg-ks-accent/10 px-2 py-0.5 rounded mb-2">
-                  {cat?.title}
+                  {cat ? t(`categories.${cat.slug}.title`, cat.title) : ""}
                 </span>
                 <h4 className="text-[13px] font-semibold text-ks-text group-hover:text-ks-accent transition-colors duration-150 line-clamp-2">
-                  {a.title}
+                  {t(`articles.${a.slug}.title`, a.title)}
                 </h4>
               </div>
               <div className="flex items-center justify-between mt-4 pt-3 border-t border-ks-border text-[11px] text-ks-muted">
                 <span className="flex items-center gap-1">
                   <Clock className="w-3 h-3" />
-                  {a.readMinutes} min
+                  {t("article.read_minutes", { count: a.readMinutes })}
                 </span>
                 <span className="inline-flex items-center gap-0.5 font-semibold text-ks-accent group-hover:translate-x-0.5 transition-transform">
-                  Ler <ArrowRight className="w-3 h-3" />
+                  {t("article.read_label", "Ler")} <ArrowRight className="w-3 h-3" />
                 </span>
               </div>
             </Link>

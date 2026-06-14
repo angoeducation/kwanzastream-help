@@ -100,7 +100,8 @@ function PesquisaPage() {
                 <>
                   <div className="border-t border-[var(--color-border)] pt-4">
                     {results.map((a) => {
-                      const cleanSnippet = a.body.replace(/<[^>]*>/g, '').slice(0, 160) + "...";
+                      const translatedBody = t(`articles.${a.slug}.body`, a.body);
+                      const cleanSnippet = translatedBody.replace(/<[^>]*>/g, '').slice(0, 160) + "...";
                       return (
                         <div key={a.slug} style={{ marginBottom: '28px', paddingBottom: '28px', borderBottom: '1px solid var(--color-border)' }}>
                           <Link
@@ -109,7 +110,7 @@ function PesquisaPage() {
                             className="hover:underline"
                             style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--color-link)', textDecoration: 'none', display: 'block', marginBottom: '4px' }}
                           >
-                            {a.title}
+                            {t(`articles.${a.slug}.title`, a.title)}
                           </Link>
                           <p style={{ fontSize: '0.75rem', color: 'var(--color-text-meta)', marginBottom: '6px' }}>
                             {a.id} • {t("article.last_modified")}{" "}

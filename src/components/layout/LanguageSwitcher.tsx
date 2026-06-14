@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
-  { code: 'pt', label: 'Português (Angola)' },
+  { code: 'pt', label: 'Portuguese - Português' },
   { code: 'pt-BR', label: 'Português (Brasil)' },
   { code: 'en', label: 'English' },
   { code: 'fr', label: 'Français' },
@@ -14,7 +14,11 @@ export function LanguageSwitcher() {
   return (
     <select
       value={i18n.language}
-      onChange={(e) => i18n.changeLanguage(e.target.value)}
+      onChange={(e) => {
+        const lang = e.target.value;
+        i18n.changeLanguage(lang);
+        localStorage.setItem("ks_help_language", lang);
+      }}
       aria-label="Idioma / Language"
       style={{
         background: '#0e0e10',

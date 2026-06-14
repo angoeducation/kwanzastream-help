@@ -64,7 +64,6 @@ export function CategoryGrid() {
               >
                 <Icon className="icon" />
                 <h3>{title}</h3>
-                <p>{description}</p>
               </Link>
             );
           })}

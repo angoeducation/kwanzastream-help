@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { categories } from "@/content/helpCenter";
 import { Breadcrumb } from "@/components/article/Breadcrumb";
+import { useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/catalogo")({
   head: () => ({
@@ -16,15 +17,17 @@ export const Route = createFileRoute("/catalogo")({
 });
 
 function CatalogoPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-ks-bg py-14">
       <div className="mx-auto max-w-[960px] px-6">
-        <Breadcrumb items={[{ label: "Início", to: "/" }, { label: "Catálogo de Tópicos" }]} />
+        <Breadcrumb items={[{ label: t("breadcrumb.home"), to: "/" }, { label: t("catalog.title") }]} />
 
         <div className="mt-6">
-          <h1 className="text-[28px] font-semibold text-ks-text">Catálogo de Tópicos</h1>
+          <h1 className="text-[28px] font-semibold text-ks-text">{t("catalog.title")}</h1>
           <p className="mt-2 text-[15px] text-ks-text-secondary max-w-2xl">
-            Explora todas as categorias de ajuda disponíveis na Kwanza Stream.
+            {t("catalog.subtitle")}
           </p>
         </div>
 
@@ -44,13 +47,13 @@ function CatalogoPage() {
                   </div>
                   <div className="min-w-0">
                     <h2 className="text-[16px] font-semibold text-ks-text group-hover:text-ks-accent transition-colors duration-150">
-                      {cat.title}
+                      {t(`categories.${cat.slug}.title`)}
                     </h2>
                     <p className="mt-1 text-[13px] text-ks-text-secondary leading-relaxed line-clamp-2">
-                      {cat.description}
+                      {t(`categories.${cat.slug}.description`)}
                     </p>
                     <span className="inline-block mt-2 text-[11px] font-semibold text-ks-muted">
-                      {cat.articleCount} artigos
+                      {cat.articleCount} {t("catalog.articles")}
                     </span>
                   </div>
                 </div>

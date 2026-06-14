@@ -1,7 +1,7 @@
 {
   "nav": {
     "topics": "Tópicos",
-    "catalog": "Catálogo",
+    "catalog": "Catálogo de Tópicos",
     "search": "Pesquisar",
     "login": "Entrar",
     "more_topics": "Mais tópicos...",
@@ -12,16 +12,16 @@
     "menu": "Menu"
   },
   "home": {
-    "title": "Olá! Como podemos ajudar?",
-    "search_placeholder": "Pesquisa na Base de Conhecimentos...",
-    "search_button": "Pesquisar",
+    "title": "Olá! Podemos ajudar?",
+    "search_placeholder": "Pesquisar...",
+    "search_button": "Procurar",
     "search_hint": "Pesquisa na Base de Conhecimentos ou consulta tópicos específicos abaixo.",
     "follow_x": "Segue-nos no X",
     "search_in": "na Kwanza Stream Ajuda"
   },
   "categories": {
     "comecar": {
-      "title": "Começar",
+      "title": "Introdução",
       "description": "Novo na Kwanza Stream? Temos guias para te ajudar a começar."
     },
     "programa-afiliados": {
@@ -37,15 +37,15 @@
       "description": "Fica em segurança na Kwanza Stream. Ferramentas de moderação aqui."
     },
     "pagamentos-salos": {
-      "title": "Pagamentos e Salos",
-      "description": "Problemas com pagamentos via Multicaixa? Salos e fundos aqui."
+      "title": "Apoio na Compra",
+      "description": "Dúvidas sobre compras e pagamentos? Encontra respostas aqui."
     },
     "ks-premium": {
-      "title": "Kwanza Stream Premium",
-      "description": "Queres uma experiência premium? Descobre tudo sobre o Premium!"
+      "title": "Prime Gaming e Turbo",
+      "description": "Queres saber mais sobre os benefícios do Prime Gaming e do Turbo? Vê estes artigos."
     },
     "aplicacao-movel": {
-      "title": "Aplicação Móvel",
+      "title": "Aplicações Kwanza Stream",
       "description": "Ajuda com a app Kwanza Stream? Temos artigos para todos os dispositivos!"
     },
     "ks-studio": {
@@ -53,7 +53,7 @@
       "description": "À procura de informação sobre o Kwanza Stream Studio? Temos aqui!"
     },
     "eventos-torneios": {
-      "title": "Eventos e Torneios",
+      "title": "Eventos Especiais da Kwanza Stream",
       "description": "Detalhes sobre promoções e torneios? Guardamos tudo aqui!"
     }
   },
