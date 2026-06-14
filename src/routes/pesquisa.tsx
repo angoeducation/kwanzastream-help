@@ -93,22 +93,35 @@ function PesquisaPage() {
               </p>
 
               {results.length > 0 ? (
-                <div className="border-t border-gray-200">
-                  {results.map((a) => (
-                    <div key={a.slug} className="py-5 border-b border-gray-200">
-                      <Link
-                        to="/artigo/$slug"
-                        params={{ slug: a.slug }}
-                        className="text-[16px] font-bold text-[#9146FF] hover:underline"
-                      >
-                        {a.title}
-                      </Link>
-                      <p className="text-[12px] text-[#53535F] mt-1.5">
-                        {a.id} • Última modificação {a.lastModified}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <>
+                  <div className="border-t border-gray-200">
+                    {results.map((a) => (
+                      <div key={a.slug} className="py-5 border-b border-gray-200">
+                        <Link
+                          to="/artigo/$slug"
+                          params={{ slug: a.slug }}
+                          className="text-[16px] font-bold text-[#9146FF] hover:underline"
+                        >
+                          {a.title}
+                        </Link>
+                        <p className="text-[12px] text-[#53535F] mt-1.5">
+                          {a.id} • Última modificação {a.lastModified}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-10 pt-8 border-t border-gray-150 text-center">
+                    <Link
+                      to="/contacto"
+                      className="inline-flex items-center gap-2 text-[18px] font-bold text-[#0E0E10] hover:text-[#9146FF] transition-colors cursor-pointer"
+                    >
+                      <span>Contactar Suporte</span>
+                      <svg className="w-4.5 h-4.5 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      </svg>
+                    </Link>
+                  </div>
+                </>
               ) : (
                 <div className="text-center py-16 bg-white border border-gray-200 rounded-lg">
                   <p className="text-[16px] font-medium text-ks-text">Nenhum resultado encontrado para "{q}"</p>
