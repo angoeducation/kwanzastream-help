@@ -303,31 +303,21 @@
   padding: 48px 32px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.28s ease,
-              border-color 0.28s ease,
-              background-color 0.28s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
   text-decoration: none;
   display: block;
   color: inherit;
-  will-change: transform;
 }
 
 .category-card:hover {
-  transform: scale(0.97);
-  background: var(--color-accent);
-  border-color: var(--color-accent) !important;
-  box-shadow: 0 8px 28px rgba(145, 70, 255, 0.25),
-              0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px rgba(145, 70, 255, 0.1);
+  border-color: #bf5af2 !important; /* Roxo claro */
+  background-color: rgba(145, 70, 255, 0.01);
 }
 
 .category-card:active {
-  transform: scale(0.94);
-  transition-duration: 0.1s;
-}
-
-.category-card:hover .icon {
-  color: #ffffff !important;
+  border-color: #9146FF !important; /* Roxo escuro */
+  background-color: rgba(145, 70, 255, 0.04);
 }
 
 .category-card .icon {
@@ -335,7 +325,17 @@
   height: 60px;
   margin: 0 auto 20px;
   color: #adadb8;
-  transition: color 0.28s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.category-card:hover .icon {
+  color: #9146FF !important; /* Roxo escuro */
+  transform: scale(0.94); /* Sutil efeito de pressão */
+}
+
+.category-card:active .icon {
+  color: #772CE8 !important; /* Roxo ainda mais escuro no clique */
+  transform: scale(0.88); /* Efeito de pressão mais forte no clique */
 }
 
 .category-card h3 {
@@ -344,11 +344,6 @@
   color: var(--color-text);
   margin-bottom: 10px;
   line-height: var(--leading-snug);
-  transition: color 0.28s ease;
-}
-
-.category-card:hover h3 {
-  color: #ffffff;
 }
 
 .category-card p {
@@ -356,11 +351,6 @@
   font-weight: var(--font-normal);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
-  transition: color 0.28s ease;
-}
-
-.category-card:hover p {
-  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 600px) {
