@@ -32,7 +32,7 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#9147ff] text-white">
+    <header className="sticky top-0 z-[100] bg-[#9147ff] text-white">
       <div className="mx-auto max-w-[1200px] px-6 h-[50px] flex items-center justify-between">
         
         {/* Left Section */}
