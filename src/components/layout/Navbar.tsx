@@ -32,8 +32,9 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-[100] bg-[#9147ff] text-white">
-      <div className="mx-auto max-w-[1200px] px-6 h-[50px] flex items-center justify-between">
+    <header className="sticky top-0 z-[100] bg-[#9146FF] text-white">
+      <div className="mx-auto max-w-[1200px] px-6 h-[56px] flex items-center justify-between">
+        
         {/* Left Section */}
         <div className="flex items-center gap-6">
           {/* Hamburger menu for mobile (Far Left) */}
@@ -44,30 +45,30 @@ export function Navbar() {
           >
             <Menu className="w-5 h-5" />
           </button>
-
+ 
           {/* Logo (hidden on mobile, shown on desktop) */}
           <Link to="/" className="hidden md:flex items-center gap-2 hover:opacity-90">
-            <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-[#9147ff] text-[15px] select-none">
+            <div className="w-[26px] h-[26px] bg-white rounded flex items-center justify-center font-black text-[#9146FF] text-[15px] select-none">
               K
             </div>
-            <span className="font-['Rajdhani'] font-bold text-[20px] tracking-wider">
+            <span className="font-sans font-bold text-lg tracking-[-0.01em] text-white">
               Kwanza Stream
             </span>
           </Link>
-
+ 
           {/* Navigation Links (Desktop) */}
-          <nav className="hidden md:flex items-center gap-5 text-[13px] font-semibold">
+          <nav className="hidden md:flex items-center gap-2 text-sm font-semibold">
             <div className="relative">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setTopicsOpen((v) => !v);
                 }}
-                className="flex items-center gap-1 opacity-90 hover:opacity-100 transition-opacity cursor-pointer text-[13px] font-semibold text-white bg-transparent border-none outline-none"
+                className="flex items-center gap-1 text-sm font-semibold text-white bg-transparent border-none outline-none px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all cursor-pointer"
               >
                 Tópicos <ChevronDown className="w-3.5 h-3.5 mt-0.5" />
               </button>
-
+ 
               {topicsOpen && (
                 <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg border border-gray-200 py-1.5 text-[13px] z-50">
                   <Link
@@ -143,16 +144,22 @@ export function Navbar() {
                 </div>
               )}
             </div>
-
-            <Link to="/catalogo" className="opacity-90 hover:opacity-100 transition-opacity">
+ 
+            <Link
+              to="/catalogo"
+              className="text-sm font-semibold text-white no-underline px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all"
+            >
               Catálogo
             </Link>
-            <Link to="/pesquisa" className="opacity-90 hover:opacity-100 transition-opacity">
+            <Link
+              to="/pesquisa"
+              className="text-sm font-semibold text-white no-underline px-3 py-2 rounded opacity-90 hover:opacity-100 hover:bg-white/15 transition-all"
+            >
               Pesquisar
             </Link>
           </nav>
         </div>
-
+ 
         {/* Right Section */}
         <div className="flex items-center gap-3">
           {/* Search Icon for mobile (Far Right) */}
@@ -162,11 +169,11 @@ export function Navbar() {
           >
             <Search className="w-5 h-5" />
           </Link>
-
+ 
           {auth.status === "loading" ? (
             <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-          ) : (
-            /* User menu button (both Desktop and Mobile layout) */
+          ) : auth.status === "authenticated" ? (
+            /* User menu button when authenticated */
             <div className="relative">
               <button
                 onClick={(e) => {
@@ -175,28 +182,25 @@ export function Navbar() {
                 }}
                 className="flex items-center gap-2 p-1 md:p-0 bg-transparent border-none text-white cursor-pointer select-none"
               >
-                {auth.status === "authenticated" ? (
-                  <div className="flex items-center gap-2">
-                    <img
-                      src={auth.user.profile_image_url}
-                      alt={auth.user.display_name}
-                      className="w-7 h-7 rounded border border-white/25"
-                    />
-                    <span className="text-[13px] font-semibold hidden lg:inline">
-                      {auth.user.display_name}
-                    </span>
-                    <ChevronDown className="w-3.5 h-3.5 mt-0.5 hidden md:inline" />
-                  </div>
-                ) : (
-                  <div className="w-7 h-7 rounded bg-[#ffffff]/10 hover:bg-[#ffffff]/20 border border-white/20 text-white flex items-center justify-center">
-                    <User className="w-5 h-5" />
-                  </div>
-                )}
+                <div className="flex items-center gap-2">
+                  <img
+                    src={auth.user.profile_image_url}
+                    alt={auth.user.display_name}
+                    className="w-7 h-7 rounded border border-white/25"
+                  />
+                  <span className="text-sm font-semibold hidden lg:inline">
+                    {auth.user.display_name}
+                  </span>
+                  <ChevronDown className="w-3.5 h-3.5 mt-0.5 hidden md:inline" />
+                </div>
               </button>
-
+ 
               {profileOpen && (
                 <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded shadow-lg border border-gray-150 py-1 text-[13px] z-50 text-[#0E0E10]">
-                  <Link to="/" className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]">
+                  <Link
+                    to="/"
+                    className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
+                  >
                     Página inicial
                   </Link>
                   <a
@@ -207,27 +211,38 @@ export function Navbar() {
                   >
                     Voltar à Kwanza Stream
                   </a>
-                  <Link to="/contacto" className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]">
+                  <Link
+                    to="/contacto"
+                    className="block px-4 py-2 hover:bg-gray-50 text-[#0E0E10]"
+                  >
                     Contactar Suporte
                   </Link>
                   <div className="border-t border-gray-100 my-1" />
-                  {auth.status === "authenticated" ? (
-                    <button
-                      onClick={auth.logout}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-50 text-[#0E0E10] border-none bg-transparent cursor-pointer font-semibold"
-                    >
-                      Terminar sessão
-                    </button>
-                  ) : (
-                    <button
-                      onClick={auth.login}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-50 text-[#0E0E10] border-none bg-transparent cursor-pointer font-semibold"
-                    >
-                      Entrar
-                    </button>
-                  )}
+                  <button
+                    onClick={auth.logout}
+                    className="w-full text-left px-4 py-2 hover:bg-gray-50 text-[#0E0E10] border-none bg-transparent cursor-pointer font-semibold"
+                  >
+                    Terminar sessão
+                  </button>
                 </div>
               )}
+            </div>
+          ) : (
+            /* When not authenticated */
+            <div className="flex items-center gap-2">
+              <button
+                onClick={auth.login}
+                className="hidden md:block text-sm font-semibold text-white border-none bg-transparent cursor-pointer px-3 py-2 hover:bg-white/15 rounded transition-all"
+              >
+                Entrar
+              </button>
+              <button
+                onClick={auth.login}
+                className="md:hidden w-7 h-7 rounded bg-[#ffffff]/10 hover:bg-[#ffffff]/20 border border-white/20 text-white flex items-center justify-center cursor-pointer"
+                aria-label="Entrar"
+              >
+                <User className="w-5 h-5" />
+              </button>
             </div>
           )}
         </div>

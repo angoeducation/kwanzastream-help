@@ -36,7 +36,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0e0e0e] text-[#adadb8] py-12 mt-auto border-t border-[#1f1f23]">
+    <footer className="bg-[#0e0e0e] text-[#adadb8] mt-auto border-t border-[#1f1f23]" style={{ padding: '48px 24px 32px' }}>
       {/* Desktop Footer (hidden on mobile) */}
       <div className="hidden md:grid mx-auto max-w-[1200px] px-6 grid-cols-1 lg:grid-cols-[240px_1fr] gap-10">
         {/* Left Side: White Logo Block */}
@@ -60,7 +60,8 @@ export function Footer() {
           <div className="flex justify-start">
             <Link
               to="/contacto"
-              className="text-[#9147ff] hover:text-[#772ce8] text-[15px] font-bold flex items-center gap-1 transition-colors animate-in fade-in"
+              className="hover:text-[#772ce8] flex items-center gap-1 transition-colors"
+              style={{ color: '#9147ff', fontSize: '0.875rem', fontWeight: 600 }}
             >
               Contatar Apoio &rarr;
             </Link>
@@ -70,10 +71,10 @@ export function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {columns.map((col) => (
               <div key={col.title}>
-                <h4 className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/50 mb-3">
+                <h4 style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)', marginBottom: '12px' }}>
                   {col.title}
                 </h4>
-                <ul className="space-y-2 text-[13px] font-semibold text-[#adadb8]">
+                <ul className="space-y-2" style={{ fontSize: '0.875rem', fontWeight: 400, color: '#adadb8' }}>
                   {col.links.map((link) => (
                     <li key={link}>
                       <Link to="/" className="hover:text-white transition-colors duration-150">

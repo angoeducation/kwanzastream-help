@@ -56,12 +56,69 @@
 }
 
 :root {
-  --color-primary: #9147ff;
-  --color-primary-hover: #772ce8;
-  --color-hero-bg: #f0f0ff;
-  --color-text: #0e0e0e;
-  --color-surface: #ffffff;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
 
+  /* Tamanhos — idênticos à help.twitch.tv */
+  --text-xs:   0.75rem;   /* 12px — meta, IDs de artigo */
+  --text-sm:   0.875rem;  /* 14px — nav, breadcrumb */
+  --text-base: 1rem;      /* 16px — body text */
+  --text-lg:   1.125rem;  /* 18px — card título */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px — section headings */
+  --text-3xl:  2rem;      /* 32px — artigo título */
+  --text-4xl:  2.5rem;    /* 40px — hero H1 */
+
+  /* Pesos */
+  --font-normal:    400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+
+  /* Line heights */
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.625;
+
+  /* Cores */
+  --color-accent:     #9146FF;
+  --color-accent-hover:#772CE8;
+  --color-text:       #0e0e0e;
+  --color-text-muted: #666666;
+  --color-text-meta:  #999999;
+  --color-hero-bg:    #f0f0ff;
+  --color-surface:    #ffffff;
+  --color-border:     #e5e5e5;
+  --color-border-hover:#9146FF;
+  --color-footer-bg:  #0e0e0e;
+  --color-link:       #9146FF;
+  --color-breadcrumb: #6441A5;
+
+  /* Compatibility variables for Shadcn/Tailwind */
+  --radius: 8px;
+  --background: var(--color-surface);
+  --foreground: var(--color-text);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-text);
+  --primary: var(--color-accent);
+  --primary-foreground: #ffffff;
+  --secondary: #f2f2f4;
+  --secondary-foreground: var(--color-text);
+  --muted: #f2f2f4;
+  --muted-foreground: var(--color-text-muted);
+  --accent: #f2f2f4;
+  --accent-foreground: var(--color-text);
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: var(--color-border);
+  --input: var(--color-border);
+  --ring: var(--color-accent);
+
+  /* Legacy variables compatibility */
   --ks-bg: #f7f7f8;
   --ks-surface: #ffffff;
   --ks-surface-2: #f2f2f4;
@@ -81,28 +138,9 @@
   --ks-footer-text: #ffffff;
   --ks-footer-muted: #adadb8;
   --ks-footer-divider: #1f1f23;
-
-  --radius: 8px;
-  --background: var(--ks-bg);
-  --foreground: var(--ks-text);
-  --card: var(--ks-surface);
-  --card-foreground: var(--ks-text);
-  --popover: var(--ks-surface);
-  --popover-foreground: var(--ks-text);
-  --primary: var(--ks-accent);
-  --primary-foreground: #ffffff;
-  --secondary: var(--ks-surface-2);
-  --secondary-foreground: var(--ks-text);
-  --muted: var(--ks-surface-2);
-  --muted-foreground: var(--ks-text-secondary);
-  --accent: var(--ks-surface-2);
-  --accent-foreground: var(--ks-text);
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: var(--ks-border);
-  --input: var(--ks-border);
-  --ring: var(--ks-accent);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 @utility hide-scrollbar {
   scrollbar-width: none;
@@ -117,25 +155,28 @@
   }
 
   html {
-    background-color: var(--ks-bg);
-    color: var(--ks-text);
+    background-color: var(--color-surface);
+    color: var(--color-text);
   }
 
   body {
-    background-color: var(--ks-bg);
-    color: var(--ks-text);
-    font-family: var(--font-sans);
-    line-height: 1.6;
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-normal);
+    color: var(--color-text);
+    background: var(--color-surface);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     letter-spacing: -0.01em;
-    color: var(--ks-text);
+    color: var(--color-text);
   }
 
   *:focus-visible {
@@ -147,47 +188,56 @@
 
 /* Hero Section */
 .hero-section {
-  background: #f0f0ff;
-  padding: 60px 20px;
+  background: var(--color-hero-bg);
+  padding: 64px 24px 48px;
   text-align: center;
 }
 .hero-section h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 24px;
-  color: #1a1a2e;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
 }
 .hero-section .search-container {
   display: flex;
   position: relative;
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto 16px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .hero-section .search-container > input {
   flex: 1;
-  padding: 14px 20px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  border-radius: 6px 0 0 6px;
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px 0 0 4px;
   background: white;
-  color: #0e0e10;
+  color: var(--color-text);
+  outline-offset: 2px;
 }
 .hero-section .search-container > button {
-  background: var(--ks-accent, #9146ff);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  height: 48px;
+  padding: 0 24px;
+  background: var(--color-accent);
   color: white;
   border: none;
-  padding: 14px 28px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
-  border-radius: 0 6px 6px 0;
+  transition: background-color 0.15s;
+}
+.hero-section .search-container > button:hover {
+  background: var(--color-accent-hover);
 }
 .hero-section p {
-  color: #666;
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text-muted);
+  margin-top: 12px;
 }
 
 /* Search Dropdown (Twitch-style) */
@@ -240,60 +290,82 @@
 .category-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 900px;
+  gap: 16px;
+  max-width: 860px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .category-card {
-  background: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
   padding: 48px 32px;
   text-align: center;
   cursor: pointer;
-  transition:
-    box-shadow 0.2s,
-    transform 0.1s;
+  transition: transform 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease,
+              background-color 0.28s ease;
   text-decoration: none;
+  display: block;
   color: inherit;
+  will-change: transform;
 }
 
 .category-card:hover {
-  border-color: #ef539d !important;
-  box-shadow:
-    inset 0 0 0 2px #ef539d,
-    0 0 0 2px #9146ff !important;
-  transform: none;
+  transform: scale(0.97);
+  background: var(--color-accent);
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 8px 28px rgba(145, 70, 255, 0.25),
+              0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.category-card:active {
+  transform: scale(0.94);
+  transition-duration: 0.1s;
 }
 
 .category-card:hover .icon {
-  color: #ef539d !important;
+  color: #ffffff !important;
 }
 
 .category-card .icon {
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto 20px;
-  color: #9b9b9b;
+  color: #adadb8;
+  transition: color 0.28s ease;
 }
 
 .category-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #1a1a2e;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  margin-bottom: 10px;
+  line-height: var(--leading-snug);
+  transition: color 0.28s ease;
+}
+
+.category-card:hover h3 {
+  color: #ffffff;
 }
 
 .category-card p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  transition: color 0.28s ease;
+}
+
+.category-card:hover p {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 600px) {
   .category-grid {
     grid-template-columns: 1fr;
+    padding: 0 16px;
   }
 }
