@@ -79,12 +79,12 @@ function ContactPage() {
       {view === "choice" && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4 animate-in fade-in duration-200">
           <div className="bg-white rounded-xl shadow-2xl max-w-[640px] w-full p-6 relative animate-in zoom-in-95 duration-150 text-center">
-            <button
-              onClick={() => { isLoggedIn ? setView("form") : setView("form"); }}
+            <Link
+              to="/"
               className="absolute right-4 top-4 p-1 text-gray-400 hover:text-gray-600 cursor-pointer border-none bg-transparent"
             >
               <X className="w-5 h-5" />
-            </button>
+            </Link>
 
             <h2 className="text-[22px] font-black text-[#0E0E10] mt-2">
               {t("contact.choice_title")}

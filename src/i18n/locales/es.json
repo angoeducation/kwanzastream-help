@@ -1,165 +1,165 @@
 {
   "nav": {
-    "topics": "Topics",
-    "catalog": "Catalog",
-    "search": "Search",
-    "login": "Log In",
-    "more_topics": "More topics...",
-    "home": "Home",
-    "back_to_ks": "Back to Kwanza Stream",
-    "contact_support": "Contact Support",
-    "logout": "Sign out",
-    "menu": "Menu"
+    "topics": "Temas",
+    "catalog": "Catálogo",
+    "search": "Buscar",
+    "login": "Iniciar sesión",
+    "more_topics": "Más temas...",
+    "home": "Inicio",
+    "back_to_ks": "Volver a Kwanza Stream",
+    "contact_support": "Contactar con soporte",
+    "logout": "Cerrar sesión",
+    "menu": "Menú"
   },
   "home": {
-    "title": "Hi! How can we help?",
-    "search_placeholder": "Search the Knowledge Base...",
-    "search_button": "Search",
-    "search_hint": "Search the Knowledge Base or browse specific topics below.",
-    "follow_x": "Follow us on X",
-    "search_in": "in Kwanza Stream Help"
+    "title": "¡Hola! ¿Cómo podemos ayudarte?",
+    "search_placeholder": "Buscar en la base de conocimientos...",
+    "search_button": "Buscar",
+    "search_hint": "Busca en la base de conocimientos o explora los temas específicos a continuación.",
+    "follow_x": "Síguenos en X",
+    "search_in": "en la Ayuda de Kwanza Stream"
   },
   "categories": {
     "comecar": {
-      "title": "Getting Started",
-      "description": "New to Kwanza Stream? We have guides to help you get started."
+      "title": "Primeros pasos",
+      "description": "¿Eres nuevo en Kwanza Stream? Tenemos guías para ayudarte a empezar."
     },
     "programa-afiliados": {
-      "title": "Affiliate Program",
-      "description": "Looking for info about the Affiliate Program? You're in the right place!"
+      "title": "Programa de Afiliados",
+      "description": "¿Buscas información sobre el Programa de Afiliados? ¡Estás en el lugar correcto!"
     },
     "programa-parceiros": {
-      "title": "Partner Program",
-      "description": "Questions about the Partner Program? Check out these articles!"
+      "title": "Programa de Socios",
+      "description": "¿Preguntas sobre el Programa de Socios? ¡Consulta estos artículos!"
     },
     "moderacao-seguranca": {
-      "title": "Moderation & Safety",
-      "description": "Stay safe on Kwanza Stream. Moderation tools here."
+      "title": "Moderación y Seguridad",
+      "description": "Mantente seguro en Kwanza Stream. Herramientas de moderación aquí."
     },
     "pagamentos-salos": {
-      "title": "Payments & Salos",
-      "description": "Issues with Multicaixa payments? Salos and funds here."
+      "title": "Pagos y Salos",
+      "description": "¿Problemas con los pagos de Multicaixa? Salos y fondos aquí."
     },
     "ks-premium": {
       "title": "Kwanza Stream Premium",
-      "description": "Want a premium experience? Discover everything about Premium!"
+      "description": "¿Quieres una experiencia premium? ¡Descubre todo sobre Premium!"
     },
     "aplicacao-movel": {
-      "title": "Mobile App",
-      "description": "Need help with the Kwanza Stream app? We have articles for every device!"
+      "title": "Aplicación Móvil",
+      "description": "¿Necesitas ayuda con la aplicación de Kwanza Stream? ¡Tenemos artículos para cada dispositivo!"
     },
     "ks-studio": {
       "title": "Kwanza Stream Studio",
-      "description": "Looking for info about Kwanza Stream Studio? We've got it here!"
+      "description": "¿Buscas información sobre Kwanza Stream Studio? ¡La tenemos aquí!"
     },
     "eventos-torneios": {
-      "title": "Events & Tournaments",
-      "description": "Details about promotions and tournaments? We keep it all here!"
+      "title": "Eventos y Torneos",
+      "description": "¿Detalles sobre promociones y torneos? ¡Lo guardamos todo aquí!"
     }
   },
   "article": {
-    "views_one": "{{count}} view",
-    "views_other": "{{count}} views",
-    "last_modified": "Last modified",
-    "type_label": "Article",
-    "read_minutes": "{{count}} min read",
-    "was_helpful": "Was this article helpful?",
-    "popular_articles": "Popular Articles",
-    "related_categories": "Related Categories",
-    "related_articles": "Related Articles",
-    "contact_support": "Contact Support",
-    "not_found": "Article not found",
-    "back_to_help": "Back to Help Center",
-    "error_loading": "Error loading article",
-    "updated_on": "Updated on"
+    "views_one": "{{count}} reproducción",
+    "views_other": "{{count}} reproducciones",
+    "last_modified": "Última modificación",
+    "type_label": "Artículo",
+    "read_minutes": "{{count}} min de lectura",
+    "was_helpful": "¿Te ha resultado útil este artículo?",
+    "popular_articles": "Artículos populares",
+    "related_categories": "Categorías relacionadas",
+    "related_articles": "Artículos relacionados",
+    "contact_support": "Contactar con soporte",
+    "not_found": "Artículo no encontrado",
+    "back_to_help": "Volver al Centro de ayuda",
+    "error_loading": "Error al cargar el artículo",
+    "updated_on": "Actualizado el"
   },
   "search": {
-    "page_title": "Search",
-    "tab_articles": "Articles",
-    "tab_popular": "Popular Articles",
-    "sorted_by": "Sorted by Relevance",
-    "results_one": "{{count}} result",
-    "results_other": "{{count}} results",
-    "no_results_title": "No results for \"{{query}}\" in Articles",
-    "no_results_hint": "Try different keywords or check out the",
-    "no_results_link": "topic catalog",
-    "popular_searches": "Popular searches"
+    "page_title": "Buscar",
+    "tab_articles": "Artículos",
+    "tab_popular": "Artículos populares",
+    "sorted_by": "Ordenado por relevancia",
+    "results_one": "{{count}} resultado",
+    "results_other": "{{count}} resultados",
+    "no_results_title": "Sin resultados para \"{{query}}\" en Artículos",
+    "no_results_hint": "Prueba con palabras clave diferentes o consulta el",
+    "no_results_link": "catálogo de temas",
+    "popular_searches": "Búsquedas populares"
   },
   "footer": {
-    "tagline": "Kwanza Stream is the streaming platform built for Angolan creators.",
-    "contact_support": "Contact Support",
-    "language_label": "Language",
+    "tagline": "Kwanza Stream es la plataforma de streaming creada para creadores angoleños.",
+    "contact_support": "Contactar con soporte",
+    "language_label": "Idioma",
     "col_kwanzastream": "KWANZA STREAM",
-    "col_programas": "PROGRAMS",
-    "col_recursos": "RESOURCES",
-    "col_legal": "LEGAL"
+    "col_programas": "PROGRAMAS",
+    "col_recursos": "RECURSOS",
+    "col_legal": "AVISO LEGAL"
   },
   "breadcrumb": {
-    "home": "Home"
+    "home": "Inicio"
   },
   "catalog": {
-    "title": "Topic Catalog",
-    "subtitle": "Browse all available help categories.",
-    "articles": "articles",
-    "not_found": "Category not found",
-    "error_loading": "Error loading category",
-    "no_articles": "No articles in this category yet.",
-    "contact_support": "Contact Support",
-    "related_categories": "Related categories"
+    "title": "Catálogo de temas",
+    "subtitle": "Explora todas las categorías de ayuda disponibles.",
+    "articles": "artículos",
+    "not_found": "Categoría no encontrada",
+    "error_loading": "Error al cargar la categoría",
+    "no_articles": "Aún no hay artículos en esta categoría.",
+    "contact_support": "Contactar con soporte",
+    "related_categories": "Categorías relacionadas"
   },
   "whatsapp": {
-    "aria_label": "Chat with us on WhatsApp"
+    "aria_label": "Chatea con nosotros en WhatsApp"
   },
   "contact": {
-    "breadcrumb": "Contact Us",
-    "choice_title": "How would you like to get help?",
-    "choice_subtitle": "Choose the option that works best for you.",
-    "chat_title": "Talk to us",
-    "chat_subtitle": "Get a response in minutes",
-    "start_chat": "Start chat",
-    "email_title": "Send us an email",
-    "email_subtitle": "We'll respond within 24 hours",
-    "send_email": "Send email",
-    "login_to_send": "Log in to send email",
-    "chat_loading": "The chat is loading... Please try again in a moment.",
-    "form_title": "Contact Us",
-    "form_subtitle": "Fill in the fields below to open an official support request.",
-    "field_name": "Your name",
-    "field_username": "Your Kwanza Stream username",
-    "field_email": "Email address for reply",
-    "field_phone": "Phone number linked to your Kwanza Stream account",
-    "phone_placeholder": "E.g.: 923000000",
-    "field_category": "Category",
-    "cat_account": "Account/Login Issues",
-    "cat_general": "General / Questions",
-    "cat_legal": "Legal & Terms",
-    "cat_monetized": "Monetized Accounts (Affiliates/Partners)",
-    "cat_privacy": "Privacy & GDPR",
-    "cat_purchases": "Purchases & Subs (Multicaixa)",
-    "cat_feedback": "Send Feedback / Ideas",
-    "cat_suspensions": "Suspensions and Safety Warnings",
-    "cat_apps": "Kwanza Stream Apps (Mobile/Studio)",
-    "field_description": "Problem description",
-    "description_placeholder": "Explain your problem in detail...",
-    "submit": "Submit",
-    "success_title": "Message sent successfully!",
-    "success_message": "Thank you, {{name}}. Your support ticket has been registered and sent to the Kwanza Stream team. We'll contact you at {{email}} within 24 hours.",
-    "back_home": "Back to Home",
-    "view_topics": "View Topics",
-    "login_required_title": "Login Required",
-    "login_required_message": "Only authenticated users can submit support requests to Kwanza Stream.",
-    "login_button": "Log in with Kwanza Stream",
-    "sidebar_chat_title": "Get help now, skip the wait",
-    "sidebar_chat_subtitle": "Chat with our virtual assistant for a faster response. Available now.",
-    "sidebar_start_chat": "Start a chat",
-    "other_resources": "Other Resources"
+    "breadcrumb": "Contáctanos",
+    "choice_title": "¿Cómo te gustaría recibir ayuda?",
+    "choice_subtitle": "Elige la opción que mejor se adapte a tus necesidades.",
+    "chat_title": "Habla con nosotros",
+    "chat_subtitle": "Obtén respuesta en minutos",
+    "start_chat": "Iniciar chat",
+    "email_title": "Envíanos un correo electrónico",
+    "email_subtitle": "Responderemos en menos de 24 horas",
+    "send_email": "Enviar correo",
+    "login_to_send": "Inicia sesión para enviar un correo",
+    "chat_loading": "El chat se está cargando... Por favor, inténtalo de nuevo en un momento.",
+    "form_title": "Contáctanos",
+    "form_subtitle": "Completa los campos a continuación para abrir una solicitud de soporte oficial.",
+    "field_name": "Tu nombre",
+    "field_username": "Tu nombre de usuario de Kwanza Stream",
+    "field_email": "Dirección de correo electrónico de respuesta",
+    "field_phone": "Número de teléfono vinculado a tu cuenta de Kwanza Stream",
+    "phone_placeholder": "Ej.: 923000000",
+    "field_category": "Categoría",
+    "cat_account": "Problemas de cuenta/Inicio de sesión",
+    "cat_general": "General / Preguntas",
+    "cat_legal": "Términos y condiciones legales",
+    "cat_monetized": "Cuentas monetizadas (Afiliados/Socios)",
+    "cat_privacy": "Privacidad y RGPD",
+    "cat_purchases": "Compras y suscripciones (Multicaixa)",
+    "cat_feedback": "Enviar comentarios / Ideas",
+    "cat_suspensions": "Suspensiones y advertencias de seguridad",
+    "cat_apps": "Aplicaciones de Kwanza Stream (Móvil/Studio)",
+    "field_description": "Descripción del problema",
+    "description_placeholder": "Explica tu problema detalladamente...",
+    "submit": "Enviar",
+    "success_title": "¡Mensaje enviado con éxito!",
+    "success_message": "Gracias, {{name}}. Tu ticket de soporte ha sido registrado y enviado al equipo de Kwanza Stream. Te contactaremos en {{email}} en menos de 24 horas.",
+    "back_home": "Volver al inicio",
+    "view_topics": "Ver temas",
+    "login_required_title": "Inicio de sesión requerido",
+    "login_required_message": "Solo los usuarios autenticados pueden enviar solicitudes de soporte a Kwanza Stream.",
+    "login_button": "Iniciar sesión con Kwanza Stream",
+    "sidebar_chat_title": "Obtén ayuda ahora y evita la espera",
+    "sidebar_chat_subtitle": "Chatea con nuestro asistente virtual para obtener una respuesta más rápida. Disponible ya.",
+    "sidebar_start_chat": "Iniciar un chat",
+    "other_resources": "Otros recursos"
   },
   "errors": {
-    "page_not_found": "Page not found",
-    "page_not_found_message": "The page you're looking for doesn't exist or has been moved.",
-    "go_home": "Go to home",
-    "page_error_title": "This page didn't load",
-    "page_error_message": "An error occurred. You can try reloading the page or go back to the home page.",
-    "try_again": "Try again"
+    "page_not_found": "Página no encontrada",
+    "page_not_found_message": "La página que buscas no existe o ha sido movida.",
+    "go_home": "Ir al inicio",
+    "page_error_title": "Esta página no se cargó",
+    "page_error_message": "Ha ocurrido un error. Puedes intentar recargar la página o volver a la página de inicio.",
+    "try_again": "Intentar de nuevo"
   }
 }
