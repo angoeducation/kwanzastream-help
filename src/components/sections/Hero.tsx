@@ -52,7 +52,7 @@ export function Hero() {
             >
               <Search className="search-dropdown-icon" />
               <span>
-                &lsquo;<strong>{query}</strong>&rsquo; na Kwanza Stream Ajuda
+                "<strong>{query}</strong>" na Kwanza Stream Ajuda
               </span>
             </button>
           </div>
